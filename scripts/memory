@@ -1,0 +1,83 @@
+#!/bin/bash
+# Clarke's Unified Memory CLI
+# One command to rule them all
+
+SCRIPT_DIR="/root/clawd/scripts"
+
+show_help() {
+    cat << EOF
+🧠 Clarke's Memory System
+
+Usage: memory <command> [args]
+
+Commands:
+  search <query>           Search all memory files for text
+  distill [days]          Review recent memory and suggest updates (default: 7 days)
+  tag add <file> <tags>   Add tags to a memory file
+  tag find <tag>          Find all entries with a specific tag
+  tag list                List all tags in use
+  stats                   Show memory system statistics
+  help                    Show this help
+
+Examples:
+  memory search "Ultrahuman"
+  memory distill 14
+  memory tag add memory/2026-01-28.md security automation
+  memory tag find security
+  memory stats
+
+EOF
+}
+
+stats() {
+    echo "📊 Memory System Statistics"
+    echo ""
+    
+    # Count files
+    daily_count=$(find /root/clawd/memory -name "*.md" -type f 2>/dev/null | wc -l)
+    echo "Daily memory files: $daily_count"
+    
+    # MEMORY.md size
+    if [ -f /root/clawd/MEMORY.md ]; then
+        size=$(wc -l < /root/clawd/MEMORY.md)
+        words=$(wc -w < /root/clawd/MEMORY.md)
+        echo "MEMORY.md: $size lines, $words words"
+    fi
+    
+    # Recent activity
+    echo ""
+    echo "Recent files:"
+    ls -lt /root/clawd/memory/*.md 2>/dev/null | head -5 | awk '{print "  " $9 " (" $6, $7, $8 ")"}'
+    
+    # Tag count
+    echo ""
+    tag_count=$(/root/clawd/scripts/memory-tag.sh list 2>/dev/null | grep -c '#')
+    echo "Total unique tags: $tag_count"
+}
+
+COMMAND="$1"
+shift
+
+case "$COMMAND" in
+    search)
+        "$SCRIPT_DIR/memory-search.sh" "$@"
+        ;;
+    distill)
+        "$SCRIPT_DIR/memory-distill.sh" "$@"
+        ;;
+    tag)
+        "$SCRIPT_DIR/memory-tag.sh" "$@"
+        ;;
+    stats)
+        stats
+        ;;
+    help|"")
+        show_help
+        ;;
+    *)
+        echo "❌ Unknown command: $COMMAND"
+        echo ""
+        show_help
+        exit 1
+        ;;
+esac
