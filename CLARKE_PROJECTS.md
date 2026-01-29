@@ -1,7 +1,19 @@
 # Clarke Projects (Active Tracking)
 
+## Fake Day Trading Simulator
+- **Status:** SCHEDULED (Sunday Feb 2, 8 AM EST)
+- **What:** Autonomous tech/AI stock day trader with fake $10k capital
+- **Strategy:** Gap trading (buy stocks gapping >2% at market open)
+- **Stocks:** NVDA, AMD, MSFT, GOOGL, META, TSLA, AAPL, PLTR, SNOW
+- **Risk:** -3% stop loss, +5% take profit, max 3-5 positions
+- **Automation:** Fully autonomous Mon-Fri, Shirin gets reports only
+- **Reports:** 9:45 AM (trades made) + 4:15 PM (EOD P&L)
+- **Build:** Sub-agent using local model (3-4 hours)
+- **Launch:** Monday Feb 3, 9:30 AM EST first trades
+- **Next:** Wait for Sunday build completion
+
 ## Finance Tracker
-- **Status:** IN PROGRESS
+- **Status:** COMPLETED
 - **What:** Python script + Excel file to track household income/expenses
 - **Tasks:**
   - [ ] Get Excel file from Shirin (format TBD)
