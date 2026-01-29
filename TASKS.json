@@ -17,22 +17,22 @@
     ],
     "planned": [
       {
-        "id": "build-fake-trader",
-        "title": "Build Day Trading Simulator",
-        "description": "Tech/AI stock day trader (fake money). Gap trading strategy, Mon-Fri automation, $10k starting capital. Python + yfinance, fully autonomous.",
-        "priority": "high",
-        "scheduledFor": "2026-02-02",
-        "estimatedDuration": "3-4 hours",
-        "notes": "Sunday 8 AM sub-agent build. Once complete, Mon-Fri trading crons will be added."
-      },
-      {
         "id": "smart-home-integration",
         "title": "Smart Home Integration (Nest + Philips Hue)",
         "description": "Build API integration for Nest thermostat and Philips Hue lights control",
         "priority": "high",
-        "scheduledFor": "2026-02-01 17:00",
+        "scheduledFor": "2026-01-31 17:00",
         "estimatedDuration": "3-4 hours",
-        "notes": "Saturday 5 PM build. Ping Shirin when starting."
+        "notes": "Saturday Jan 31, 5 PM build. Ping Shirin when starting."
+      },
+      {
+        "id": "build-fake-trader",
+        "title": "Build Day Trading Simulator",
+        "description": "Tech/AI stock day trader (fake money). Gap trading strategy, Mon-Fri automation, $10k starting capital. Python + yfinance, fully autonomous.",
+        "priority": "high",
+        "scheduledFor": "2026-02-01 08:00",
+        "estimatedDuration": "3-4 hours",
+        "notes": "Sunday Feb 1, 8 AM sub-agent build. Once complete, Mon-Fri trading crons will be added."
       },
       {
         "id": "all-state-insurance-shopping",
