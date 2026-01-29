@@ -1,10 +1,10 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T18:20:00Z",
+    "lastUpdated": "2026-01-29T18:35:00Z",
     "version": "1.0"
   },
   "tasks": {
-    "in_progress": [
+    "autonomous": [
       {
         "id": "mistral-hybrid-optimization",
         "title": "Mistral + Claude Hybrid Token Optimization",
@@ -24,44 +24,7 @@
           "Finance categorization (Mistral → Claude)",
           "30-day ROI report"
         ],
-        "notes": "Ollama service running. First 106 tokens logged. Token stats now in morning brief."
-      },
-      {
-        "id": "gmail-cleanup-plan",
-        "title": "Gmail Inbox Analysis & Cleanup Plan",
-        "description": "Scan 18,400 emails, categorize by sender/age/type, create cleanup strategy",
-        "priority": "high",
-        "started": "2026-01-29",
-        "estimatedCompletion": "2026-01-30",
-        "status": "scheduled for 1 AM tonight"
-      }
-    ],
-    "planned": [
-      {
-        "id": "smart-home-integration",
-        "title": "Smart Home Integration (Nest + Philips Hue)",
-        "description": "Build API integration for Nest thermostat and Philips Hue lights control",
-        "priority": "high",
-        "scheduledFor": "2026-01-31 17:00",
-        "estimatedDuration": "3-4 hours",
-        "notes": "Saturday Jan 31, 5 PM build. Ping Shirin when starting."
-      },
-      {
-        "id": "build-fake-trader",
-        "title": "Build Day Trading Simulator",
-        "description": "Tech/AI stock day trader (fake money). Gap trading strategy, Mon-Fri automation, $10k starting capital. Python + yfinance, fully autonomous.",
-        "priority": "high",
-        "scheduledFor": "2026-02-01 08:00",
-        "estimatedDuration": "3-4 hours",
-        "notes": "Sunday Feb 1, 8 AM sub-agent build. Once complete, Mon-Fri trading crons will be added."
-      },
-      {
-        "id": "all-state-insurance-shopping",
-        "title": "All State Insurance Shopping",
-        "description": "Find better insurance rates for April renewal (current: $550/month)",
-        "priority": "medium",
-        "scheduledFor": "2026-02-01",
-        "estimatedDuration": "1-2 hours"
+        "notes": "Ollama service running. First 106 tokens logged. Token stats now in morning brief. Work on Phase 2 during downtime."
       },
       {
         "id": "vector-embeddings-memory",
@@ -101,6 +64,45 @@
           "Response time improvement",
           "API call reduction"
         ]
+      }
+    ],
+    "in_progress": [
+      {
+        "id": "gmail-cleanup-plan",
+        "title": "Gmail Inbox Analysis & Cleanup Plan",
+        "description": "Scan 18,400 emails, categorize by sender/age/type, create cleanup strategy",
+        "priority": "high",
+        "started": "2026-01-29",
+        "estimatedCompletion": "2026-01-30",
+        "status": "scheduled for 1 AM tonight"
+      }
+    ],
+    "planned": [
+      {
+        "id": "smart-home-integration",
+        "title": "Smart Home Integration (Nest + Philips Hue)",
+        "description": "Build API integration for Nest thermostat and Philips Hue lights control",
+        "priority": "high",
+        "scheduledFor": "2026-01-31 17:00",
+        "estimatedDuration": "3-4 hours",
+        "notes": "Saturday Jan 31, 5 PM build. Ping Shirin when starting."
+      },
+      {
+        "id": "build-fake-trader",
+        "title": "Build Day Trading Simulator",
+        "description": "Tech/AI stock day trader (fake money). Gap trading strategy, Mon-Fri automation, $10k starting capital. Python + yfinance, fully autonomous.",
+        "priority": "high",
+        "scheduledFor": "2026-02-01 08:00",
+        "estimatedDuration": "3-4 hours",
+        "notes": "Sunday Feb 1, 8 AM sub-agent build. Once complete, Mon-Fri trading crons will be added."
+      },
+      {
+        "id": "all-state-insurance-shopping",
+        "title": "All State Insurance Shopping",
+        "description": "Find better insurance rates for April renewal (current: $550/month)",
+        "priority": "medium",
+        "scheduledFor": "2026-02-01",
+        "estimatedDuration": "1-2 hours"
       }
     ],
     "completed": [
