@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T01:34:00Z",
+    "lastUpdated": "2026-01-29T01:45:00Z",
     "version": "1.0"
   },
   "tasks": {
@@ -11,8 +11,8 @@
         "description": "Scan 18,400 emails, categorize by sender/age/type, create cleanup strategy",
         "priority": "high",
         "started": "2026-01-29",
-        "estimatedCompletion": "2026-01-29",
-        "status": "analyzing"
+        "estimatedCompletion": "2026-01-30",
+        "status": "scheduled for 1 AM tonight"
       }
     ],
     "planned": [
@@ -34,6 +34,20 @@
       }
     ],
     "completed": [
+      {
+        "id": "task-dashboard",
+        "title": "Vercel Task Dashboard",
+        "description": "Next.js dashboard reading from TASKS.json, deployed to Vercel",
+        "completedAt": "2026-01-29T01:37:00Z",
+        "outcome": "Live at dashboard-alpha-seven-45.vercel.app"
+      },
+      {
+        "id": "voice-transcription",
+        "title": "Telegram Voice Message Transcription",
+        "description": "OpenAI Whisper API integration for automatic voice-to-text",
+        "completedAt": "2026-01-29T01:45:00Z",
+        "outcome": "Configured, needs gateway restart to activate"
+      },
       {
         "id": "security-hardening",
         "title": "Critical Security Hardening",
