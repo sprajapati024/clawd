@@ -1,7 +1,7 @@
 # Clarke Projects (Active Tracking)
 
 ## Fake Day Trading Simulator
-- **Status:** SCHEDULED (Sunday Feb 2, 8 AM EST)
+- **Status:** SCHEDULED (Sunday Feb 1, 8 AM EST)
 - **What:** Autonomous tech/AI stock day trader with fake $10k capital
 - **Strategy:** Gap trading (buy stocks gapping >2% at market open)
 - **Stocks:** NVDA, AMD, MSFT, GOOGL, META, TSLA, AAPL, PLTR, SNOW

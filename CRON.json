@@ -5,10 +5,10 @@
   "jobs": [
     {
       "name": "morning-brief",
-      "schedule": "0 12 * * * (7 AM EST)",
-      "nextRun": "Daily at 7:00 AM EST",
+      "schedule": "0 10 * * * (5 AM EST)",
+      "nextRun": "Daily at 5:00 AM EST",
       "enabled": true,
-      "description": "☀️ Morning Brief - Weather, security, system health"
+      "description": "☀️ Morning Brief - Weather, security, system health, improvements"
     },
     {
       "name": "daily-security-report",
