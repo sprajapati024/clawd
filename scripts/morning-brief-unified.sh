@@ -80,6 +80,19 @@ fi
 
 echo "" >> "$BRIEF_FILE"
 
+# TOKEN USAGE (Yesterday)
+if [ -f /root/clawd/scripts/token-tracker.py ]; then
+    echo "📊 TOKEN USAGE (Yesterday)" >> "$BRIEF_FILE"
+    YESTERDAY=$(date -d yesterday '+%Y-%m-%d')
+    TOKEN_STATS=$(/root/clawd/scripts/token-tracker.py daily 2>/dev/null | python3 -c "import sys, json; d=json.load(sys.stdin); print(f\"• Local (Mistral): {d['mistral']:,} tokens (\$0.00)\n• Claude API: {d['claude']:,} tokens (\${d['actual_cost']:.2f})\n• Optimization: {d['savings_pct']:.1f}% local ({d['savings_pct']:.0f}% cost reduction)\")" 2>/dev/null)
+    if [ -n "$TOKEN_STATS" ]; then
+        echo "$TOKEN_STATS" >> "$BRIEF_FILE"
+    else
+        echo "No token usage yesterday" >> "$BRIEF_FILE"
+    fi
+    echo "" >> "$BRIEF_FILE"
+fi
+
 # HEALTH (Ultrahuman)
 echo "💪 YOUR HEALTH" >> "$BRIEF_FILE"
 

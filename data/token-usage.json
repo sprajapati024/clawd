@@ -1,0 +1,20 @@
+{
+  "daily": {
+    "2026-01-29": {
+      "mistral": 106,
+      "claude": 0,
+      "operations": [
+        {
+          "time": "2026-01-29T17:58:13.945710",
+          "source": "mistral",
+          "tokens": 106,
+          "operation": "completion"
+        }
+      ]
+    }
+  },
+  "total": {
+    "mistral": 106,
+    "claude": 0
+  }
+}
