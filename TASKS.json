@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T18:00:00Z",
+    "lastUpdated": "2026-01-29T18:20:00Z",
     "version": "1.0"
   },
   "tasks": {
@@ -62,6 +62,45 @@
         "priority": "medium",
         "scheduledFor": "2026-02-01",
         "estimatedDuration": "1-2 hours"
+      },
+      {
+        "id": "vector-embeddings-memory",
+        "title": "Vector Embeddings for Semantic Memory Search",
+        "description": "Local sentence-transformer model for meaning-based search. Upgrade from text matching to understanding context. Example: 'insurance talk' finds 'Allstate coverage' discussions.",
+        "priority": "medium",
+        "estimatedDuration": "4-6 hours",
+        "notes": "~500MB-1GB RAM. Biggest impact on memory recall quality. Work on after Mistral ROI proven.",
+        "measurables": [
+          "Search accuracy improvement (benchmark before/after)",
+          "Response time",
+          "Memory usage overhead"
+        ]
+      },
+      {
+        "id": "postgresql-database",
+        "title": "PostgreSQL Database Migration",
+        "description": "Move from JSON files to proper database. Finance tracking, email metadata, task history, analytics. Scalable data foundation.",
+        "priority": "medium",
+        "estimatedDuration": "6-8 hours",
+        "notes": "~100-200MB RAM. Better queries, reporting, scales as data grows.",
+        "measurables": [
+          "Query performance vs JSON",
+          "Data integrity checks",
+          "Storage efficiency"
+        ]
+      },
+      {
+        "id": "redis-cache-layer",
+        "title": "Redis Cache Layer",
+        "description": "In-memory cache for frequently accessed data. Speed up API responses, memory searches, repeated queries across the board.",
+        "priority": "medium",
+        "estimatedDuration": "3-4 hours",
+        "notes": "~50-100MB RAM. Performance boost for all systems.",
+        "measurables": [
+          "Cache hit rate",
+          "Response time improvement",
+          "API call reduction"
+        ]
       }
     ],
     "completed": [
