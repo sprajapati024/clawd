@@ -10,6 +10,12 @@ Things like:
 - Device nicknames
 - Anything environment-specific
 
+## Timezone
+- **Shirin's timezone:** EST/EDT (Toronto)
+- **System time:** UTC
+- **Offset:** UTC -5 (EST) / UTC -4 (EDT during daylight saving)
+- **Always convert UTC to EST/EDT when talking about time**
+
 ## VPS Monitoring Setup
 
 **Monitoring runs every 5 minutes via cron**
