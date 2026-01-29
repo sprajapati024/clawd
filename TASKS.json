@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T01:45:00Z",
+    "lastUpdated": "2026-01-29T16:20:00Z",
     "version": "1.0"
   },
   "tasks": {
@@ -16,6 +16,15 @@
       }
     ],
     "planned": [
+      {
+        "id": "build-fake-trader",
+        "title": "Build Day Trading Simulator",
+        "description": "Tech/AI stock day trader (fake money). Gap trading strategy, Mon-Fri automation, $10k starting capital. Python + yfinance, fully autonomous.",
+        "priority": "high",
+        "scheduledFor": "2026-02-02",
+        "estimatedDuration": "3-4 hours",
+        "notes": "Sunday 8 AM sub-agent build. Once complete, Mon-Fri trading crons will be added."
+      },
       {
         "id": "smart-home-integration",
         "title": "Smart Home Integration (Nest + Philips Hue)",
