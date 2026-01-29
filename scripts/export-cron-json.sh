@@ -97,6 +97,13 @@ const jobs = [
     description: '📊 Weekly Finance Summary - 7-day spending by category'
   },
   {
+    name: 'build-fake-trader',
+    schedule: '0 13 * * 0 (8 AM EST Sunday)',
+    nextRun: 'Sundays at 8:00 AM EST',
+    enabled: true,
+    description: '🤖 Sub-Agent: Build Day Trading Simulator'
+  },
+  {
     name: 'monthly-review',
     schedule: '0 1 1 2 * (Jan 31 8 PM EST)',
     nextRun: 'Jan 31, 2026 at 8:00 PM EST',
