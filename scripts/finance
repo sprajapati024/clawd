@@ -1,0 +1,111 @@
+#!/bin/bash
+# Clarke's Finance Management CLI
+# Unified interface for all finance operations
+
+SCRIPT_DIR="/root/clawd/scripts"
+FINANCE_DIR="/root/clawd/finance"
+
+show_help() {
+    cat << EOF
+💰 Clarke's Finance System
+
+Usage: finance <command> [args]
+
+Commands:
+  log <amount> <category> [description]   Log a transaction
+  weekly                                   Show weekly summary
+  monthly                                  Show monthly summary  
+  pdf                                      Generate monthly PDF report
+  budget                                   Show current budget
+  stats                                    Show quick stats
+  help                                     Show this help
+
+Categories:
+  grocery, eating_out, misc, gas, shopping, gifts, health,
+  entertainment, home, auto, other
+
+Examples:
+  finance log 45.50 grocery "Costco run"
+  finance log \$120 eating_out "Dinner with friends"
+  finance weekly
+  finance pdf
+
+EOF
+}
+
+log_transaction() {
+    "$SCRIPT_DIR/finance-log.sh" "$@"
+}
+
+show_weekly() {
+    "$SCRIPT_DIR/finance-report.py" weekly
+}
+
+show_monthly() {
+    "$SCRIPT_DIR/finance-report.py" monthly
+}
+
+generate_pdf() {
+    "$SCRIPT_DIR/finance-pdf.py"
+}
+
+show_budget() {
+    cat "$FINANCE_DIR/budget.json" | jq '{income, summary}'
+}
+
+show_stats() {
+    # Quick stats from current month's transactions
+    CURRENT_MONTH=$(date +%Y-%m)
+    TRANS_FILE="$FINANCE_DIR/transactions/${CURRENT_MONTH}.csv"
+    
+    if [ ! -f "$TRANS_FILE" ]; then
+        echo "No transactions logged for $CURRENT_MONTH yet"
+        return
+    fi
+    
+    echo "📊 Quick Stats ($(date +%B))"
+    echo ""
+    
+    # Count transactions
+    TRANS_COUNT=$(($(wc -l < "$TRANS_FILE") - 1))
+    echo "  Transactions: $TRANS_COUNT"
+    
+    # Total spent
+    TOTAL=$(tail -n +2 "$TRANS_FILE" | awk -F',' '{sum+=$2} END {printf "%.2f", sum}')
+    echo "  Total Spent: \$$TOTAL"
+    
+    echo ""
+}
+
+COMMAND="$1"
+shift
+
+case "$COMMAND" in
+    log)
+        log_transaction "$@"
+        ;;
+    weekly)
+        show_weekly
+        ;;
+    monthly)
+        show_monthly
+        ;;
+    pdf)
+        generate_pdf
+        ;;
+    budget)
+        show_budget
+        ;;
+    stats)
+        show_stats
+        ;;
+    help|"")
+        show_help
+        ;;
+    *)
+        echo "❌ Unknown command: $COMMAND"
+        echo ""
+        show_help
+        exit 1
+        ;;
+esac

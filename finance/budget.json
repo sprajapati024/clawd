@@ -1,0 +1,84 @@
+{
+  "version": "1.0",
+  "cycle": {
+    "start": 27,
+    "end": 27,
+    "description": "27th to 27th monthly cycle"
+  },
+  "income": {
+    "shirin": {
+      "amount": 3000,
+      "frequency": "biweekly",
+      "nextPayday": "2026-01-29",
+      "monthlyEstimate": 6500
+    },
+    "zeel": {
+      "amount": 3200,
+      "frequency": "biweekly",
+      "nextPayday": "2026-02-06",
+      "monthlyEstimate": 6933
+    },
+    "total": 13433
+  },
+  "expenses": {
+    "fixed": {
+      "mortgage": 1972,
+      "personal": {
+        "amount": 800,
+        "description": "$400 each for Shirin and Zeel personal use"
+      },
+      "tesla_finance": 894,
+      "utility": 300,
+      "property_tax": 900,
+      "osap": 66,
+      "gifts_friends_family": 100
+    },
+    "recurring": {
+      "all_state": {
+        "amount": 550,
+        "notes": "Up for renewal April 2026 - shop in Feb"
+      },
+      "grocery": 500,
+      "misc_eating_out": {
+        "amount": 350,
+        "tracked": true,
+        "notes": "Track actual vs budget"
+      },
+      "fido_phone": 144,
+      "rogers_internet": {
+        "amount": 115,
+        "includes": ["Netflix", "Apple TV", "Disney+"]
+      },
+      "trupanion_coffee": 112,
+      "water_tank_rental": 54,
+      "ai_subscription": 30,
+      "tesla_connectivity": 16,
+      "spotify": 15
+    }
+  },
+  "summary": {
+    "total_income": 13433,
+    "total_fixed": 5032,
+    "total_recurring": 1886,
+    "total_expenses": 6918,
+    "net_monthly": 6515,
+    "savings_rate": 0.485
+  },
+  "categories": [
+    "grocery",
+    "eating_out",
+    "misc",
+    "gas",
+    "shopping",
+    "gifts",
+    "health",
+    "entertainment",
+    "home",
+    "auto",
+    "other"
+  ],
+  "tracking": {
+    "household": true,
+    "individual": false
+  }
+}
