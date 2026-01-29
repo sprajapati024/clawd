@@ -10,7 +10,7 @@ cat > /tmp/export-cron.js << 'EOF'
 const fs = require('fs');
 const { execSync } = require('child_process');
 
-// Mock data based on what we know from the cron list
+// Only recurring tasks - no one-off projects
 const jobs = [
   {
     name: 'morning-brief',
@@ -95,13 +95,6 @@ const jobs = [
     nextRun: 'Sundays at 8:00 AM EST',
     enabled: true,
     description: '📊 Weekly Finance Summary - 7-day spending by category'
-  },
-  {
-    name: 'build-fake-trader',
-    schedule: '0 13 * * 0 (8 AM EST Sunday)',
-    nextRun: 'Sundays at 8:00 AM EST',
-    enabled: true,
-    description: '🤖 Sub-Agent: Build Day Trading Simulator'
   },
   {
     name: 'monthly-review',

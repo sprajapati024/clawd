@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T15:12:23.796Z"
+    "lastUpdated": "2026-01-29T16:08:23.944Z"
   },
   "jobs": [
     {
@@ -86,13 +86,6 @@
       "nextRun": "Sundays at 8:00 AM EST",
       "enabled": true,
       "description": "📊 Weekly Finance Summary - 7-day spending by category"
-    },
-    {
-      "name": "build-fake-trader",
-      "schedule": "0 13 * * 0 (8 AM EST Sunday)",
-      "nextRun": "Sundays at 8:00 AM EST",
-      "enabled": true,
-      "description": "🤖 Sub-Agent: Build Day Trading Simulator"
     },
     {
       "name": "monthly-review",
