@@ -9,7 +9,7 @@ If `BOOTSTRAP.md` exists, that's your birth certificate. Follow it, figure out w
 ## Every Session
 
 Before doing anything else:
-1. **Run memory integrity check:** `bash /root/clawd/scripts/memory-integrity-check.sh`
+1. **Run session startup:** `bash /root/clawd/scripts/session-startup.sh` (loads memory context automatically)
 2. Read `SOUL.md` — this is who you are
 3. Read `USER.md` — this is who you're helping
 4. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
