@@ -103,28 +103,15 @@ if [ -f /root/clawd/scripts/token-tracker.py ]; then
     echo "" >> "$BRIEF_FILE"
 fi
 
-# HEALTH (Ultrahuman)
-echo "💪 YOUR HEALTH" >> "$BRIEF_FILE"
-
-# Check if Ultrahuman is configured
-if [ -f /root/clawd/scripts/ultrahuman_daily_brief.py ]; then
-    HEALTH_DATA=$(/root/clawd/scripts/ultrahuman_daily_brief.py 2>/dev/null)
-    if [ $? -eq 0 ] && [ -n "$HEALTH_DATA" ]; then
-        echo "$HEALTH_DATA" >> "$BRIEF_FILE"
-    else
-        echo "⏳ Ultrahuman integration pending (need API keys)" >> "$BRIEF_FILE"
-    fi
-else
-    echo "⏳ Ultrahuman integration pending" >> "$BRIEF_FILE"
+# IMPROVEMENT SUGGESTIONS
+SUGGESTIONS_FILE="/tmp/improvement-suggestions-$(date +%Y%m%d).txt"
+if [ -f "$SUGGESTIONS_FILE" ]; then
+    echo "💡 IMPROVEMENTS TO CONSIDER" >> "$BRIEF_FILE"
+    cat "$SUGGESTIONS_FILE" >> "$BRIEF_FILE"
+    echo "" >> "$BRIEF_FILE"
+    # Clear the file after reading
+    rm "$SUGGESTIONS_FILE"
 fi
-
-echo "" >> "$BRIEF_FILE"
-
-# CALENDAR (Placeholder for future)
-# Uncomment when calendar integration is ready
-# echo "📆 TODAY'S SCHEDULE" >> "$BRIEF_FILE"
-# [Calendar integration here]
-# echo "" >> "$BRIEF_FILE"
 
 # FOOTER
 cat >> "$BRIEF_FILE" << 'FOOTER'

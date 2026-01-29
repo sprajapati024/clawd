@@ -45,3 +45,13 @@
   - Memory loss between sessions
   - Forgetting systems we built
   - Not using tools we created
+
+## Improvement Analysis (Daily, before morning brief)
+- Review today's memory file + recent conversations
+- Identify friction points, inefficiencies, repeated manual work
+- Generate 2-3 concrete improvement proposals
+- Write to `/tmp/improvement-suggestions-YYYYMMDD.txt`:
+  - Format: `• [Action] - [concrete benefit]`
+  - Keep it brief: headline + one-line rationale
+  - Focus on automation, token savings, time savings
+- Morning brief will include these automatically at 5 AM EST
