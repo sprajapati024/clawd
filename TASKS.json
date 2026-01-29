@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T16:20:00Z",
+    "lastUpdated": "2026-01-29T16:36:00Z",
     "version": "1.0"
   },
   "tasks": {
@@ -30,8 +30,9 @@
         "title": "Smart Home Integration (Nest + Philips Hue)",
         "description": "Build API integration for Nest thermostat and Philips Hue lights control",
         "priority": "high",
-        "scheduledFor": "2026-01-30",
-        "estimatedDuration": "3-4 hours"
+        "scheduledFor": "2026-02-01 17:00",
+        "estimatedDuration": "3-4 hours",
+        "notes": "Saturday 5 PM build. Ping Shirin when starting."
       },
       {
         "id": "all-state-insurance-shopping",
