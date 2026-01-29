@@ -77,9 +77,31 @@ export default async function Home() {
   return (
     <main style={{ padding: '40px', maxWidth: '1400px', margin: '0 auto' }}>
       <div style={{ marginBottom: '40px' }}>
-        <h1 style={{ fontSize: '32px', margin: '0 0 8px 0' }}>
-          👓 Clarke's Task Board
+        <h1 style={{ fontSize: '32px', margin: '0 0 16px 0' }}>
+          👓 Clarke's Dashboard
         </h1>
+        <div style={{ display: 'flex', gap: '16px', marginBottom: '16px' }}>
+          <a href="/" style={{
+            padding: '8px 16px',
+            backgroundColor: '#3b82f6',
+            color: '#fff',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            fontWeight: 'bold'
+          }}>
+            📋 Tasks
+          </a>
+          <a href="/schedules" style={{
+            padding: '8px 16px',
+            backgroundColor: '#1a1a1a',
+            color: '#fff',
+            textDecoration: 'none',
+            borderRadius: '6px',
+            border: '1px solid #333'
+          }}>
+            ⏰ Schedules
+          </a>
+        </div>
         <p style={{ color: '#707070', margin: 0 }}>
           Last updated: {new Date(meta.lastUpdated).toLocaleString()}
         </p>
@@ -87,7 +109,7 @@ export default async function Home() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
         gap: '24px'
       }}>
         <div>
@@ -112,29 +134,6 @@ export default async function Home() {
           {!tasks.planned?.length && (
             <p style={{ color: '#707070' }}>No planned tasks</p>
           )}
-        </div>
-
-        <div>
-          <h2 style={{ fontSize: '20px', marginBottom: '16px', color: '#6b7280' }}>
-            ⏸️ Back Burner ({tasks.backburner?.length || 0})
-          </h2>
-          {tasks.backburner?.map(task => (
-            <TaskCard key={task.id} task={task} status="backburner" />
-          ))}
-          {!tasks.backburner?.length && (
-            <p style={{ color: '#707070' }}>No backburner tasks</p>
-          )}
-        </div>
-      </div>
-
-      <div style={{ marginTop: '40px' }}>
-        <h2 style={{ fontSize: '20px', marginBottom: '16px', color: '#10b981' }}>
-          ✅ Recently Completed ({tasks.completed?.slice(0, 5).length || 0})
-        </h2>
-        <div style={{ display: 'grid', gap: '12px' }}>
-          {tasks.completed?.slice(0, 5).map(task => (
-            <TaskCard key={task.id} task={task} status="completed" />
-          ))}
         </div>
       </div>
     </main>
