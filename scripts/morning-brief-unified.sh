@@ -80,6 +80,16 @@ fi
 
 echo "" >> "$BRIEF_FILE"
 
+# OVERNIGHT WORK (Autonomous Tasks)
+OVERNIGHT_WORK_FILE="/tmp/overnight-work-$(date +%Y%m%d).txt"
+if [ -f "$OVERNIGHT_WORK_FILE" ]; then
+    echo "🤖 OVERNIGHT WORK" >> "$BRIEF_FILE"
+    cat "$OVERNIGHT_WORK_FILE" >> "$BRIEF_FILE"
+    echo "" >> "$BRIEF_FILE"
+    # Clear the file after reading
+    rm "$OVERNIGHT_WORK_FILE"
+fi
+
 # TOKEN USAGE (Yesterday)
 if [ -f /root/clawd/scripts/token-tracker.py ]; then
     echo "📊 TOKEN USAGE (Yesterday)" >> "$BRIEF_FILE"
