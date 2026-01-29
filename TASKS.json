@@ -1,10 +1,27 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T16:36:00Z",
+    "lastUpdated": "2026-01-29T17:55:00Z",
     "version": "1.0"
   },
   "tasks": {
     "in_progress": [
+      {
+        "id": "mistral-hybrid-optimization",
+        "title": "Mistral + Claude Hybrid Token Optimization",
+        "description": "Build local Mistral preprocessing system to reduce Claude API costs. Track and prove ROI on 8GB upgrade.",
+        "priority": "high",
+        "started": "2026-01-29",
+        "estimatedCompletion": "2026-02-05",
+        "status": "Phase 1: Token tracking (today), Phase 2: Use cases (this week), Phase 3: Daily metrics",
+        "milestones": [
+          "Token tracking infrastructure + daily brief integration",
+          "Email preprocessing (Mistral → Claude)",
+          "Security log analysis (Mistral → Claude)",
+          "Memory distillation (Mistral → Claude)",
+          "Finance categorization (Mistral → Claude)",
+          "30-day ROI report"
+        ]
+      },
       {
         "id": "gmail-cleanup-plan",
         "title": "Gmail Inbox Analysis & Cleanup Plan",
