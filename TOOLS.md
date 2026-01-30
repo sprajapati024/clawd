@@ -10,6 +10,35 @@ Things like:
 - Device nicknames
 - Anything environment-specific
 
+## Todoist Integration
+
+**API Token:** Configured ✅
+**Projects:**
+- `Clarke - Autonomous Work` - Long-term optimization projects
+- `Clarke - Planned Tasks` - Scheduled upcoming work
+- `Clarke - Backburner` - Low priority / blocked tasks
+- `Clarke - Recurring Systems` - Daily/automated routines
+
+**Quick Commands:**
+```bash
+todoist today                    # Today's tasks
+todoist tasks -p "Clarke - Autonomous Work"  # Project tasks
+todoist add "Task name" --due "tomorrow" --priority 1
+todoist done <task-id>          # Complete task
+```
+
+**Automation:**
+- `/root/clawd/scripts/todoist-auto-update.py` - Auto-sync with TASKS.json
+- Can add tasks via chat: "add X to todoist"
+- Morning brief includes today's tasks
+- Automatic updates when work completes
+
+**All migrated from TASKS.json:**
+✅ 4 autonomous projects (Mistral hybrid, Vector search, PostgreSQL, Redis)
+✅ 2 planned tasks (Smart home, Insurance shopping)  
+✅ 3 backburner items (Package tracking, Ultrahuman, Calendar)
+✅ 7 recurring systems (VPS monitoring, security, backups, trading bot)
+
 ## Timezone
 - **Shirin's timezone:** EST/EDT (Toronto)
 - **System time:** UTC
