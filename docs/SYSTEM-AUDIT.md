@@ -276,12 +276,12 @@ fi
 3. ✅ ~~Model fallback config~~ (DONE)
 4. ✅ ~~Memory writing automation~~ (DONE)
 5. ✅ ~~Session freshness~~ (DONE)
-6. **⏳ Memory search configuration** (hybrid search + provider)
-7. **⏳ Heartbeat configuration** (active hours + interval)
+6. ✅ ~~Memory search configuration~~ (DONE - OpenAI + hybrid search)
+7. ✅ ~~Heartbeat configuration~~ (DONE - 7 AM - 11 PM EST, 30min interval)
 
 ### Medium Priority (This Week)
 8. **BOOT.md creation** (startup checklist)
-9. **Git backup automation** (daily cron)
+9. ✅ ~~Git backup automation~~ (DONE - daily 2 AM EST cron)
 10. **Session startup script enhancement**
 
 ### Low Priority (Nice to Have)
