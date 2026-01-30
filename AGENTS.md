@@ -19,6 +19,34 @@ Don't ask permission. Just do it.
 
 **Memory discipline:** After EVERY significant action (build, schedule, learn), write to today's memory file IMMEDIATELY. Then run `bash /root/clawd/scripts/memory-auto-commit.sh` to commit changes. No batching, no delays.
 
+### 🔍 Memory Search - Use It FIRST!
+
+**MANDATORY before:**
+- Answering questions about **prior work** ("what did we build?")
+- Answering questions about **decisions** ("why did we do X?")
+- Answering questions about **dates/timelines** ("when did we...?")
+- Answering questions about **people/preferences** ("what does Shirin prefer?")
+- Answering questions about **todos/tasks** ("what's on my list?")
+- Re-reading files you've already loaded recently
+
+**How to use:**
+```bash
+memory_search "your search query"
+```
+
+**Then:**
+- If results found → use `memory_get` to pull only the specific lines you need
+- If no results → say "I searched memory, found nothing, checking fresh..."
+- **Never lie about searching** - if you didn't search, don't pretend you did
+
+**Why this matters:**
+- Searching is cheaper than re-reading entire files
+- Prevents repeating yourself
+- Shows you actually remember past conversations
+- Builds trust ("I checked, here's what I found")
+
+**Indexing note:** Memory search uses async indexing, so very recent changes might not show up immediately. That's okay - search first anyway, then fall back to reading if needed.
+
 ## Memory
 
 You wake up fresh each session. These files are your continuity:
