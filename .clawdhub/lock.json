@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "skills": {
+    "dexter": {
+      "version": "1.0.0",
+      "installedAt": 1769754687062
+    },
+    "todoist": {
+      "version": "0.2.1",
+      "installedAt": 1769754703278
+    },
+    "google-workspace-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1769754718905
+    },
+    "gog": {
+      "version": "1.0.0",
+      "installedAt": 1769754731419
+    },
+    "vercel": {
+      "version": "1.0.1",
+      "installedAt": 1769754750894
+    },
+    "apple-remind-me": {
+      "version": "1.0.0",
+      "installedAt": 1769754768163
+    },
+    "apple-contacts": {
+      "version": "1.2.0",
+      "installedAt": 1769754784763
+    },
+    "apple-photos": {
+      "version": "1.0.0",
+      "installedAt": 1769754796132
+    },
+    "apple-music": {
+      "version": "1.2.0",
+      "installedAt": 1769754813471
+    },
+    "healthkit-sync": {
+      "version": "1.0.0",
+      "installedAt": 1769754830676
+    },
+    "track17": {
+      "version": "0.1.0",
+      "installedAt": 1769754848196
+    },
+    "youtube-summarizer": {
+      "version": "1.0.0",
+      "installedAt": 1769754864525
+    },
+    "steam": {
+      "version": "0.4.0",
+      "installedAt": 1769754881524
+    },
+    "things-mac": {
+      "version": "1.0.0",
+      "installedAt": 1769754897839
+    },
+    "icloud-findmy": {
+      "version": "1.0.0",
+      "installedAt": 1769754915963
+    },
+    "shortcuts-skill": {
+      "version": "0.1.0",
+      "installedAt": 1769754934259
+    },
+    "apple-mail-search": {
+      "version": "1.0.0",
+      "installedAt": 1769754953544
+    }
+  }
+}
