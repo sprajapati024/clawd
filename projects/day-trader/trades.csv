@@ -1,0 +1,4 @@
+timestamp,symbol,action,shares,price,reasoning
+2026-01-30T13:43:15.527431,AAPL,BUY,6,145.41,"Strong technical breakout, RSI oversold"
+2026-01-30T13:43:15.528344,TSLA,BUY,5,171.58,"EV sector momentum, earnings beat expected"
+2026-01-30T13:43:15.528924,NVDA,BUY,7,117.36,"AI chip demand surge, datacenter growth"

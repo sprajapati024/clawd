@@ -1,0 +1,72 @@
+[0;32m[2026-01-30 13:42:27] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:42:27] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Date: Fri Jan 30 01:42:27 PM UTC 2026[0m
+[0;32m[2026-01-30 13:42:27] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+⚠️ AI analysis failed: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions
+📭 No trade recommendations generated
+
+💰 Portfolio Value: $10000.00
+📈 Return: $0.00 (0.00%)
+[0;32m[2026-01-30 13:42:27] [INFO] No trades executed[0m
+[0;32m[2026-01-30 13:42:27] [INFO] Step 5: Generating daily report...[0m
+[0;31m[2026-01-30 13:42:27] [ERROR] Script failed at line 149[0m
+[0;32m[2026-01-30 13:42:45] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:42:45] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Date: Fri Jan 30 01:42:45 PM UTC 2026[0m
+[0;32m[2026-01-30 13:42:45] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+⚠️ AI analysis failed: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions
+📭 No trade recommendations generated
+
+💰 Portfolio Value: $10000.00
+📈 Return: $0.00 (0.00%)
+[0;32m[2026-01-30 13:42:45] [INFO] No trades executed[0m
+[0;32m[2026-01-30 13:42:45] [INFO] Step 5: Generating daily report...[0m
+[0;31m[2026-01-30 13:42:45] [ERROR] Script failed at line 149[0m
+[0;32m[2026-01-30 13:43:06] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:43:06] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Date: Fri Jan 30 01:43:06 PM UTC 2026[0m
+[0;32m[2026-01-30 13:43:06] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+⚠️ AI analysis failed: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions
+📭 No trade recommendations generated
+
+💰 Portfolio Value: $10000.00
+📈 Return: $0.00 (0.00%)
+[0;32m[2026-01-30 13:43:06] [INFO] No trades executed[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 5: Generating daily report...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Daily report generated: /root/clawd/projects/day-trader/logs/report_20260130.txt[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 6: Backing up data...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Backup created: /root/clawd/projects/day-trader/backups/backup_20260130_134306.tar.gz (4.0K)[0m
+[0;32m[2026-01-30 13:43:06] [INFO] Step 7: Cleaning up old logs...[0m
+[0;32m[2026-01-30 13:43:06] [INFO] ==========================================[0m
+[0;32m[2026-01-30 13:43:06] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
+[0;32m[2026-01-30 13:43:06] [INFO] ==========================================[0m

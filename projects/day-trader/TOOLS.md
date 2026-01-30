@@ -1,169 +1,273 @@
-# TOOLS.md - Day Trader Project Tools
+# Day Trader Project - Tools & Scripts
 
-## API Keys & Credentials
+## Overview
+Autonomous trading bot system for algorithmic day trading with AI-powered decision making.
 
-**Store in `~/.clawdbot/credentials/day-trader/` or environment variables**
+## Directory Structure
+```
+/root/clawd/projects/day-trader/
+├── portfolio.py              # Portfolio management core
+├── portfolio.csv            # Current holdings
+├── trades.csv              # Trade history
+├── cash.json               # Cash balance
+├── scripts/
+│   ├── trader.py           # Trading decision engine
+│   ├── daily_routine.sh    # Daily automation script
+│   └── portfolio_review.py # Portfolio review command
+├── logs/                   # Daily logs and reports
+├── backups/               # Data backups
+└── TOOLS.md              # This file
+```
 
-### Required APIs
-1. **Alpha Vantage** (free tier)
-   - Key: `ALPHA_VANTAGE_API_KEY`
-   - Rate limit: 5 calls/minute, 500 calls/day
-   - Use for: Real-time quotes, technical indicators
+## Core Components
 
-2. **Yahoo Finance** (no key required)
-   - Library: `yfinance` Python package
-   - Use for: Historical data, fundamentals
+### 1. Portfolio Management (`portfolio.py`)
+**Purpose**: Manages holdings, cash, trades, and performance tracking.
 
-3. **News API** (optional)
-   - Provider: NewsAPI.org or RSS feeds
-   - Use for: Market news, sentiment
+**Key Functions**:
+- `buy(symbol, shares, price, reasoning)`: Buy shares with risk checks
+- `sell(symbol, shares, price, reasoning)`: Sell shares with risk checks
+- `get_portfolio()`: Get current holdings
+- `get_performance()`: Get performance metrics
+- `update_prices(price_updates)`: Update current prices
 
-### Telegram Integration
-- Use main Clarke bot (same Telegram)
-- Channel: `#day-trader-alerts` (optional separate chat)
-- Format: Simple text + emoji alerts
+**Risk Management**:
+- Max position size: 10% of portfolio
+- Stop loss: 5% (configurable)
+- Take profit: 10% (configurable)
 
-## Python Environment
+### 2. Trading Decision Engine (`scripts/trader.py`)
+**Purpose**: AI-powered trading decisions using DeepSeek API.
 
-### Required Packages
+**Features**:
+- Technical + fundamental analysis
+- Risk-managed trade recommendations
+- Real-time market analysis
+- Trade execution with risk checks
+
+**Configuration**:
+- API: DeepSeek via OpenRouter
+- Model: `deepseek/deepseek-chat`
+- Temperature: 0.3 (conservative)
+
+### 3. Daily Routine (`scripts/daily_routine.sh`)
+**Purpose**: Automated daily trading workflow.
+
+**Schedule**: Runs at 4:30 PM EST (after market close)
+
+**Steps**:
+1. Check market status
+2. Fetch latest prices
+3. Update portfolio prices
+4. Run trading analysis
+5. Execute trades
+6. Generate daily report
+7. Backup data
+8. Send notifications (optional)
+
+**Logging**: Daily logs in `logs/daily_YYYYMMDD.log`
+
+### 4. Portfolio Review (`scripts/portfolio_review.py`)
+**Purpose**: Generate Telegram-friendly portfolio summaries.
+
+**Usage**:
 ```bash
-pip install yfinance pandas numpy matplotlib requests
+# Basic summary
+python3 scripts/portfolio_review.py
+
+# With S&P 500 comparison
+python3 scripts/portfolio_review.py --benchmark
+
+# Simple output (no emojis)
+python3 scripts/portfolio_review.py --simple
 ```
 
-### Project Structure
-```
-day-trader/
-├── data/                  # Market data storage
-│   ├── historical/       # Daily price data
-│   ├── portfolio/        # Portfolio snapshots
-│   └── trades/          # Trade log
-├── scripts/             # Automation scripts
-│   ├── market_data.py   # Data collection
-│   ├── portfolio.py     # Portfolio management
-│   ├── alerts.py        # Alert generation
-│   └── reporting.py     # Report generation
-├── strategies/          # Trading strategies
-│   ├── base.py         # Strategy base class
-│   ├── swing_trade.py  # Swing trading logic
-│   └── indicators.py   # Technical indicators
-└── config/             # Configuration
-    ├── symbols.json    # Watchlist
-    └── settings.yaml   # Project settings
-```
+**Output Format**:
+- Clean text (no tables)
+- Emoji-enhanced for readability
+- Performance metrics
+- Current holdings
+- Recent trades
+- Risk metrics
 
-## Data Management
+## API Keys Required
 
-### File Formats
-- **Portfolio:** CSV with columns: `symbol, shares, avg_price, current_price, pnl`
-- **Trades:** CSV with columns: `date, symbol, action, shares, price, reason`
-- **Performance:** JSON with daily snapshots
+### Essential:
+1. **DeepSeek API Key** (OpenRouter)
+   - For trading decisions
+   - Get from: https://openrouter.ai/keys
 
-### Storage Locations
-- Local: `/root/clawd/projects/day-trader/data/`
-- Backup: Git commit daily
-- Cloud: Optional S3/Backblaze backup
+### Optional:
+2. **Telegram Bot Token**
+   - For notifications
+   - Create via @BotFather
 
-## Automation Scripts
+3. **Financial Data APIs** (for future enhancement)
+   - Alpha Vantage, Polygon, etc.
 
-### 1. Market Data Collector
-```python
-# scripts/market_data.py
-# Runs at 4:05 PM EST daily
-# Fetches: Daily prices, volume, indicators
-# Stores: CSV files in data/historical/
+## Setup Instructions
+
+### 1. Initial Setup:
+```bash
+cd /root/clawd/projects/day-trader
+
+# Make scripts executable
+chmod +x scripts/*.py scripts/*.sh
+
+# Test portfolio system
+python3 portfolio.py
 ```
 
-### 2. Portfolio Updater
-```python
-# scripts/portfolio.py  
-# Runs at 4:10 PM EST daily
-# Updates: Current portfolio values
-# Calculates: Daily P&L, performance metrics
+### 2. Configure API Keys:
+Edit `/root/clawd-workspace/dexter/.env`:
+```bash
+DEEPSEEK_API_KEY=your_openrouter_api_key_here
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+TELEGRAM_CHAT_ID=your_chat_id_here
 ```
 
-### 3. Alert Generator
-```python
-# scripts/alerts.py
-# Runs on demand or scheduled
-# Checks: Stop losses, strategy signals
-# Sends: Telegram alerts via Clawdbot
+### 3. Test Trading Engine:
+```bash
+cd /root/clawd/projects/day-trader
+python3 scripts/trader.py
 ```
 
-### 4. Report Generator
-```python
-# scripts/reporting.py
-# Runs at 6:00 PM EST daily
-# Generates: Daily performance report
-# Creates: Simple charts/images
+### 4. Test Daily Routine:
+```bash
+cd /root/clawd/projects/day-trader
+bash scripts/daily_routine.sh
+```
+
+### 5. Test Portfolio Review:
+```bash
+cd /root/clawd/projects/day-trader
+python3 scripts/portfolio_review.py
+```
+
+## Automation Setup
+
+### Option A: Cron Job (Recommended)
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line (runs at 4:30 PM EST daily)
+30 16 * * 1-5 cd /root/clawd/projects/day-trader && bash scripts/daily_routine.sh >> /root/clawd/projects/day-trader/logs/cron.log 2>&1
+```
+
+### Option B: Heartbeat Integration
+Add to `HEARTBEAT.md`:
+```markdown
+## Daily Trading Check
+- [ ] Run daily trading routine at 4:30 PM EST
+- [ ] Check portfolio performance
+- [ ] Review recent trades
 ```
 
 ## Clawdbot Integration
 
-### Skills to Build/Use
-1. **Day Trader Monitor** - Portfolio check command
-2. **Market Scanner** - Watchlist scanning
-3. **Alert Manager** - Custom alert rules
-4. **Report Sender** - Scheduled reports to Telegram
+### Portfolio Command Wrapper
+Create a Clawdbot skill for `/portfolio` command:
 
-### Command Examples
-```
-/portfolio status      # Current portfolio snapshot
-/market scan           # Scan watchlist for signals
-/alert add TSLA <220   # Add price alert for TSLA under $220
-/report daily          # Generate daily report
-```
+```python
+# Example skill structure
+# /root/clawd/skills/portfolio/skill.py
 
-### Session Spawning
-```bash
-# Clarke spawns day-trader agent with project workspace
-sessions_spawn \
-  --task "Check portfolio performance" \
-  --workspace /root/clawd/projects/day-trader
+from scripts.portfolio_review import PortfolioReview
+
+def portfolio_command():
+    review = PortfolioReview()
+    return review.generate_summary()
 ```
 
-## Monitoring & Alerts
+### Telegram Integration
+The daily routine can send Telegram notifications when configured:
+- Daily completion status
+- Portfolio performance
+- Trade executions
+- Error alerts
 
-### Health Checks
-- Daily data collection success/failure
-- Portfolio calculation accuracy
-- API rate limit monitoring
-- Script execution logs
+## Data Files
 
-### Alert Channels
-1. **Telegram** (primary) - Clarke bot
-2. **Email** (optional) - Critical failures
-3. **Log file** - `/var/log/day-trader/`
-
-### Alert Examples
-```
-🟢 DAILY REPORT: Portfolio +2.3% ($230), TSLA +5%, AAPL -1%
-🟡 ALERT: TSLA approaching stop loss at $210 (current $212)
-🔴 STOP LOSS: AAPL hit stop at $175, selling 10 shares
+### `portfolio.csv`
+```csv
+symbol,shares,avg_price,current_price,market_value,pnl
+AAPL,10,150.00,155.00,1550.00,50.00
 ```
 
-## Development Notes
+### `trades.csv`
+```csv
+timestamp,symbol,action,shares,price,reasoning
+2024-01-30T16:30:00,AAPL,BUY,10,150.00,Technical breakout
+```
 
-### Testing
-- Use historical data for backtesting
-- Paper trading before "live" simulation
-- Validate all calculations manually first
+### `cash.json`
+```json
+{
+  "cash": 8500.00,
+  "last_updated": "2024-01-30T16:30:00"
+}
+```
 
-### Safety
-- No real money involved
-- All trades simulated
-- Maximum "loss" = learning opportunity
-- Keep backups of all data
+## Monitoring & Maintenance
 
-### Performance Tracking
-- Benchmark vs S&P 500
-- Track win/loss ratio
-- Measure risk-adjusted returns
-- Log all decisions for review
+### Log Files:
+- `logs/daily_YYYYMMDD.log`: Daily execution logs
+- `logs/report_YYYYMMDD.txt`: Daily performance reports
+- `logs/cron.log`: Cron job output
 
-## Next Steps
-1. Set up Python environment
-2. Create basic data collection script
-3. Build portfolio tracker
-4. Integrate with Clarke for alerts
-5. Add simple trading strategy
-6. Create Telegram reporting
+### Backups:
+- Automatic daily backups in `backups/`
+- Kept for 30 days
+- Manual restore: `tar -xzf backup_YYYYMMDD_HHMMSS.tar.gz`
+
+### Health Checks:
+1. Check log files for errors
+2. Verify API key validity
+3. Monitor disk space for backups
+4. Review trade execution success rate
+
+## Troubleshooting
+
+### Common Issues:
+
+1. **API Key Errors**:
+   - Verify `.env` file permissions
+   - Check API key validity
+   - Test with curl: `curl -H "Authorization: Bearer $KEY" https://openrouter.ai/api/v1/models`
+
+2. **Permission Errors**:
+   ```bash
+   chmod +x scripts/*.py scripts/*.sh
+   chmod 644 portfolio.csv trades.csv cash.json
+   ```
+
+3. **Cron Job Not Running**:
+   - Check system timezone: `timedatectl`
+   - Verify cron service: `systemctl status cron`
+   - Check cron logs: `grep CRON /var/log/syslog`
+
+4. **Data Corruption**:
+   - Restore from latest backup
+   - Check file permissions
+   - Validate CSV/JSON format
+
+## Future Enhancements
+
+### Phase 2:
+1. Real market data integration
+2. Advanced technical indicators
+3. Multi-timeframe analysis
+4. Portfolio optimization
+
+### Phase 3:
+1. Machine learning models
+2. Sentiment analysis
+3. Options trading
+4. Risk parity strategies
+
+## Support
+- Check logs first: `tail -f logs/daily_$(date +%Y%m%d).log`
+- Review recent trades: `tail -20 trades.csv`
+- Test components individually
+- Backup before major changes

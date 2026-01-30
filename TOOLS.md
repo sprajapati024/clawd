@@ -16,6 +16,29 @@ Things like:
 - **Offset:** UTC -5 (EST) / UTC -4 (EDT during daylight saving)
 - **Always convert UTC to EST/EDT when talking about time**
 
+## Trading Bot Commands
+
+**Portfolio Review:**
+```bash
+cd /root/clawd/projects/day-trader && python3 scripts/portfolio_review.py
+```
+Alias: `/portfolio` (via Telegram)
+
+**Schedule:**
+- Runs Mon-Fri at 4:30 PM EST (automated via cron)
+- Daily report sent to Telegram after market close
+- Shows: holdings, P&L, trades, closing balance
+
+**Files:**
+- Portfolio: `/root/clawd/projects/day-trader/portfolio.csv`
+- Trades: `/root/clawd/projects/day-trader/trades.csv`
+- Reports: `/root/clawd/projects/day-trader/logs/report_*.txt`
+
+**API Keys Needed:**
+- DeepSeek API (OpenRouter) - for trading decisions
+- Financial Datasets API (optional) - for real market data
+- Tavily API (optional) - for news/research
+
 ## VPS Monitoring Setup
 
 **Monitoring runs every 5 minutes via cron**
