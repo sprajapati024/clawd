@@ -14,6 +14,7 @@ Before doing anything else:
 3. Read `USER.md` — this is who you're helping
 4. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
 5. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+6. **Check session freshness:** Monitor context usage, suggest `/new` when appropriate
 
 Don't ask permission. Just do it.
 
@@ -30,6 +31,26 @@ Don't ask permission. Just do it.
 **Pattern:** Do → Write → Commit → Reply (in that order)
 
 **Reference:** See `/root/clawd/docs/CHECKLIST-memory-writing.md` for full checklist
+
+### 🔄 Session Freshness - Suggest /new When Needed
+
+**Monitor session health:**
+- Check context usage: `📊 session_status`
+- Watch for: Context > 50%, session age > 4h, compactions > 0
+
+**Suggest /new when:**
+- Context usage > 75% (strong recommendation)
+- Session age > 8 hours (definite suggestion)
+- Major topic change (fresh start for new work)
+- Performance issues (slow responses, context errors)
+
+**Benefits:**
+- Faster responses (less context to process)
+- Lower token usage (cheaper)
+- Better memory recall (focused context)
+- Cleaner conversations (no context bleed)
+
+**Reference:** See `/root/clawd/docs/SESSION-FRESHNESS.md` for full guidelines
 
 ### 🔍 Memory Search - Use It FIRST!
 

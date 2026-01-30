@@ -83,14 +83,20 @@ Review last session block. Document in today's memory file:
 - Repeated mistakes
 - Failure modes (timezone, memory loss, not using tools)
 - **Memory writing discipline:** Did I write immediately after significant actions?
+- **Session freshness:** Did I suggest /new when appropriate?
 
 **Write to:** `memory/YYYY-MM-DD.md` under `## Self-Review`
-**Track:** Timezone errors, memory loss, forgetting systems we built, delayed memory writes
+**Track:** Timezone errors, memory loss, forgetting systems we built, delayed memory writes, stale sessions
 
 **Check memory status:**
 ```bash
 bash /root/clawd/scripts/memory-check.sh
 ```
+
+**Check session freshness:**
+- Run `📊 session_status`
+- Note context usage, session age, compactions
+- Suggest `/new` if: context > 75%, age > 8h, compactions > 2
 
 **Action:** Write learnings, commit to git. Silent unless critical pattern found.
 
