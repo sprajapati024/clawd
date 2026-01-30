@@ -1,70 +1,28 @@
 {
   "meta": {
-    "lastUpdated": "2026-01-29T16:18:11.539Z"
+    "lastUpdated": "2026-01-30T02:05:00.000Z"
   },
   "jobs": [
+    {
+      "name": "improvement-analysis",
+      "schedule": "30 9 * * * (4:30 AM EST)",
+      "nextRun": "Daily at 4:30 AM EST",
+      "enabled": true,
+      "description": "💡 Improvement Analysis - Generate daily improvement proposals"
+    },
     {
       "name": "morning-brief",
       "schedule": "0 10 * * * (5 AM EST)",
       "nextRun": "Daily at 5:00 AM EST",
       "enabled": true,
-      "description": "☀️ Morning Brief - Weather, security, system health, improvements"
-    },
-    {
-      "name": "daily-security-report",
-      "schedule": "0 15 * * * (10 AM EST)",
-      "nextRun": "Daily at 10:00 AM EST",
-      "enabled": true,
-      "description": "📊 Daily Security Report - 24hr threat summary"
-    },
-    {
-      "name": "claude-ping-10am",
-      "schedule": "4 15 * * * (10:04 AM EST)",
-      "nextRun": "Daily at 10:04 AM EST",
-      "enabled": true,
-      "description": "🔄 Claude Window Ping - Renew 5hr token window"
-    },
-    {
-      "name": "journal-send",
-      "schedule": "30 17 * * * (12:30 PM EST)",
-      "nextRun": "Daily at 12:30 PM EST",
-      "enabled": true,
-      "description": "📖 Lunch Journal Delivery - Daily reflection"
-    },
-    {
-      "name": "claude-ping-3pm",
-      "schedule": "4 20 * * * (3:04 PM EST)",
-      "nextRun": "Daily at 3:04 PM EST",
-      "enabled": true,
-      "description": "🔄 Claude Window Ping - Renew 5hr token window"
-    },
-    {
-      "name": "claude-ping-8pm",
-      "schedule": "4 1 * * * (8:04 PM EST)",
-      "nextRun": "Daily at 8:04 PM EST",
-      "enabled": true,
-      "description": "🔄 Claude Window Ping - Renew 5hr token window"
-    },
-    {
-      "name": "gmail-scan",
-      "schedule": "0 6 * * * (1 AM EST)",
-      "nextRun": "Daily at 1:00 AM EST",
-      "enabled": true,
-      "description": "📧 Gmail Scan - Inbox analysis & cleanup suggestions"
+      "description": "☀️ Morning Brief - Weather, system health, improvements, overnight work"
     },
     {
       "name": "claude-ping-1am",
       "schedule": "4 6 * * * (1:04 AM EST)",
       "nextRun": "Daily at 1:04 AM EST",
       "enabled": true,
-      "description": "🔄 Claude Window Ping - Renew 5hr token window"
-    },
-    {
-      "name": "system-cleanup-logging",
-      "schedule": "30 7 * * * (2:30 AM EST)",
-      "nextRun": "Daily at 2:30 AM EST",
-      "enabled": true,
-      "description": "🧹 System Cleanup - Fix logging, tune monitoring"
+      "description": "🔄 Claude Window Ping - Renew 5hr token window (work account)"
     },
     {
       "name": "journal-write",
@@ -78,7 +36,35 @@
       "schedule": "4 11 * * * (6:04 AM EST)",
       "nextRun": "Daily at 6:04 AM EST",
       "enabled": true,
-      "description": "🔄 Claude Window Ping - Renew 5hr token window"
+      "description": "🔄 Claude Window Ping - Renew 5hr token window (work account)"
+    },
+    {
+      "name": "claude-ping-10am",
+      "schedule": "4 15 * * * (10:04 AM EST)",
+      "nextRun": "Daily at 10:04 AM EST",
+      "enabled": true,
+      "description": "🔄 Claude Window Ping - Renew 5hr token window (work account)"
+    },
+    {
+      "name": "journal-send",
+      "schedule": "30 17 * * * (12:30 PM EST)",
+      "nextRun": "Daily at 12:30 PM EST",
+      "enabled": true,
+      "description": "📖 Lunch Journal Delivery - Daily reflection"
+    },
+    {
+      "name": "claude-ping-3pm",
+      "schedule": "4 20 * * * (3:04 PM EST)",
+      "nextRun": "Daily at 3:04 PM EST",
+      "enabled": true,
+      "description": "🔄 Claude Window Ping - Renew 5hr token window (work account)"
+    },
+    {
+      "name": "claude-ping-8pm",
+      "schedule": "4 1 * * * (8:04 PM EST)",
+      "nextRun": "Daily at 8:04 PM EST",
+      "enabled": true,
+      "description": "🔄 Claude Window Ping - Renew 5hr token window (work account)"
     },
     {
       "name": "finance-weekly-summary",
@@ -93,6 +79,13 @@
       "nextRun": "Sundays at 8:00 AM EST",
       "enabled": true,
       "description": "🤖 Sub-Agent: Build Day Trading Simulator"
+    },
+    {
+      "name": "claude-account-switch-cleanup",
+      "schedule": "0 13 31 1 * (8 AM EST Jan 31)",
+      "nextRun": "Jan 31, 2026 at 8:00 AM EST",
+      "enabled": true,
+      "description": "🔄 One-time: Switch back to personal Claude account"
     },
     {
       "name": "monthly-review",

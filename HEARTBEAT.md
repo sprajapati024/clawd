@@ -3,55 +3,95 @@
 # Keep this file empty (or with only comments) to skip heartbeat API calls.
 # Add tasks below when you want the agent to check something periodically.
 
-## Morning Check (once between 8-9 AM EST)
-- If it's morning (8-9 AM EST) and I haven't sent a morning message today:
-  - Say good morning
-  - Remind to start a fresh session with `/new` for token efficiency
-  - Ask if there's anything on the agenda for the day
+## When to Act vs Stay Silent
+- **Act (respond with work/findings)** when:
+  - Security alerts detected
+  - System resources critically low
+  - Autonomous work completed
+  - Something needs Shirin's attention
+  
+- **Stay silent (HEARTBEAT_OK)** when:
+  - All checks pass, nothing to report
+  - Late night (11 PM - 7 AM) unless urgent
+  - Last check was < 30 minutes ago
+
+---
+
+## Security Monitoring (Every 2-3 hours during day)
+Check security logs and system health. Report if:
+- Failed SSH login attempts > 50 in last 24h
+- Unusual network activity detected
+- Firewall rules changed
+- New processes listening on ports
+
+**Tools:**
+- `/var/log/auth.log` - SSH attempts
+- `ss -tlnp` - listening ports
+- `/var/log/clarke-monitor/alerts.log` - automated alerts
+
+**Action:** If threats found, summarize and alert. Otherwise, HEARTBEAT_OK.
+
+---
+
+## System Maintenance (Every 4-6 hours)
+Check system resources and perform housekeeping:
+- Disk usage > 80%?
+- Memory usage > 85%?
+- Log rotation needed?
+- Stale temp files in `/tmp/`?
+
+**Tools:**
+- `df -h` - disk usage
+- `free -h` - memory usage
+- `/var/log/clarke-monitor/health.log` - monitoring data
+
+**Action:** Auto-fix when safe (cleanup old logs, clear temp files). Report if manual intervention needed.
+
+---
 
 ## Overnight Autonomous Work (1-5 AM EST)
-- If it's overnight (1-5 AM EST) and I haven't worked on autonomous tasks yet today:
-  - Check `/root/clawd/TASKS.json` autonomous queue
-  - Pick the highest priority incomplete task
-  - Work on it for 30-90 minutes (make real progress)
-  - Update progress in TASKS.json (%, milestones completed)
-  - Commit changes to git with clear message
-  - Write summary to `/tmp/overnight-work-YYYYMMDD.txt`:
-    * What task I worked on
-    * What got done (specific milestones/code/results)
-    * Progress % or measurable outcome
-    * Next steps
-  - Morning brief will pick this up automatically at 6 AM
+When heartbeat runs during 1-5 AM window AND I haven't worked on autonomous tasks yet today:
+1. Check `/root/clawd/TASKS.json` autonomous queue
+2. Pick highest priority incomplete task
+3. Work for 30-90 minutes (make real progress)
+4. Update progress in TASKS.json (%, milestones)
+5. Commit changes to git
+6. Write summary to `/tmp/overnight-work-YYYYMMDD.txt`:
+   - Task worked on
+   - What got done (specific milestones/code/results)
+   - Progress % or measurable outcome
+   - Next steps
 
-## Memory System Usage (Every 3-4 hours during active work)
-- Use the memory CLI tools we built:
-  - `memory search <query>` - Search before asking Shirin repeated questions
-  - `memory tag add memory/YYYY-MM-DD.md <tags>` - Tag important entries
-  - `memory distill 7` - Weekly review (Sundays), suggest MEMORY.md updates
-  - `memory stats` - Check memory file health
-- Rule: ONE file per day. No fragments, no topic splits.
-- Commit memory changes immediately after writing
+**Morning brief (5 AM) will pick this up automatically.**
+
+---
+
+## Memory System Review (Every 3-4 hours during active work)
+Use memory CLI tools we built:
+- `memory search <query>` - Before re-reading files
+- `memory stats` - Check file health
+- ONE file per day rule - merge if fragments exist
+
+**Action:** Maintenance only (merge fragments, fix issues). Don't spam reports.
+
+---
 
 ## Self-Review (Every 3-4 hours during active work)
-- Review last session block of work
-- Ask myself:
-  - What mistakes did I make?
-  - What did I forget that I should have remembered?
-  - Did I repeat a previous mistake?
-  - Did I use the memory system properly?
-- Document learnings in MEMORY.md under "## Lessons Learned"
-- Track specific failure modes:
-  - Timezone conversions (UTC ↔ EST)
-  - Memory loss between sessions
-  - Forgetting systems we built
-  - Not using tools we created
+Review last session block. Document in today's memory file:
+- Mistakes made
+- Things forgotten that should have been remembered
+- Repeated mistakes
+- Failure modes (timezone, memory loss, not using tools)
 
-## Improvement Analysis (Daily, before morning brief)
-- Review today's memory file + recent conversations
-- Identify friction points, inefficiencies, repeated manual work
-- Generate 2-3 concrete improvement proposals
-- Write to `/tmp/improvement-suggestions-YYYYMMDD.txt`:
-  - Format: `• [Action] - [concrete benefit]`
-  - Keep it brief: headline + one-line rationale
-  - Focus on automation, token savings, time savings
-- Morning brief will include these automatically at 5 AM EST
+**Write to:** `memory/YYYY-MM-DD.md` under `## Self-Review`
+**Track:** Timezone errors, memory loss, forgetting systems we built
+
+**Action:** Write learnings, commit to git. Silent unless critical pattern found.
+
+---
+
+## Notes
+- **Frequency:** Heartbeat polls every ~30 minutes (configurable)
+- **Time-based checks:** Use CRON for exact timing, heartbeat for "every few hours"
+- **Token efficiency:** Batch similar checks in one turn
+- **Proactive work:** Can read/organize/commit without asking
