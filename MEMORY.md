@@ -28,12 +28,60 @@
 - Config dmPolicy only accepts: "pairing", "allowlist", "open", "disabled" (NOT "accept")
 - Always ask before making changes
 - Be direct, no fluff — that's what Shirin values
-- **Timezone:** Always double-check UTC → EST conversion (UTC -5). I've gotten this wrong before.
+- **Timezone:** Always double-check UTC → EST conversion (UTC -5). I've gotten this wrong before. **FIXED:** `userTimezone: "America/Toronto"` now set.
 - **Memory discipline:** Write to daily files IMMEDIATELY after significant work. Don't batch, don't wait.
 - **Use the tools we built:** Memory system exists — use `memory search` before asking repeated questions
 - **One file per day rule:** No fragments, no topic splits in memory/ folder
 - **Personality split is real:** Multiple identity files = diluted voice. Keep it unified.
 - **We forget what we build:** Track systems, scripts, features actively. Review them regularly.
+
+### Clawdbot-Specific Lessons (Jan 29, 2026)
+**From docs deep-read:**
+
+1. **Cron vs Heartbeat** (I was doing it wrong)
+   - **Heartbeat:** Batch multiple periodic checks (inbox, calendar, weather) in ONE turn. Saves tokens. Context-aware.
+   - **Cron (isolated):** Exact timing, standalone tasks, different models/thinking levels
+   - **Cron (main --system-event):** One-shot reminders, appears in main session
+   - **Mistake:** Creating isolated cron jobs for simple reminders instead of `--session main --system-event`
+   - **Fix:** Use heartbeat for batching, cron main for reminders, cron isolated for scheduled tasks
+
+2. **Memory Flush Before Compaction** (automatic)
+   - Clawdbot runs a silent turn BEFORE compaction to write durable memory
+   - Triggered at `contextWindow - reserveTokens - softThresholdTokens` (4000 default)
+   - Already enabled in config
+   - **Action:** Trust the system, write to memory proactively during sessions
+
+3. **Session Memory Search** (experimental, enabled)
+   - Can search session transcripts, not just memory files
+   - Async indexing (results slightly stale)
+   - **Mistake:** Not using `memory_search` enough before re-reading files
+   - **Fix:** Search FIRST, then read specific files
+
+4. **Bootstrap Files = System Prompt**
+   - AGENTS.md, SOUL.md, TOOLS.md, IDENTITY.md, USER.md loaded EVERY session
+   - Max 20K chars each (truncated)
+   - **Mistake:** Not following session startup instructions (run session-startup.sh first)
+   - **Fix:** Read SOUL.md every session, follow AGENTS.md strictly
+
+5. **Token Optimization**
+   - `/status` shows usage + cost
+   - `/compact` manually summarizes when bloated
+   - **Heartbeat keeps cache warm** (set interval just under cache TTL)
+   - **Mistake:** Not suggesting `/new` aggressively enough
+   - **Fix:** Monitor tokens, suggest fresh sessions when context bloats
+
+6. **Model Failover** (native support)
+   - Built-in: `model.fallbacks: ["deepseek/...", "moonshot/..."]`
+   - Auth profile rotation FIRST, then model fallback
+   - Automatic cooldowns (exponential backoff)
+   - **Mistake:** Planning custom error handling when it's already native
+   - **Fix:** Just configure fallbacks array once we have API keys
+
+7. **"Mental Notes" Don't Exist**
+   - Memory is limited between sessions
+   - If I want to remember something, WRITE IT TO A FILE
+   - Commit immediately: `bash /root/clawd/scripts/memory-auto-commit.sh`
+   - **Text > Brain** 📝
 
 ## Self-Review Process
 Every 3-4 hours during active work (triggered by heartbeat):
