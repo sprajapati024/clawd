@@ -18,6 +18,33 @@ Before doing anything else:
 
 Don't ask permission. Just do it.
 
+### ✅ Todoist - MANDATORY Task Tracking
+
+**EVERYTHING goes to Todoist with comments. No exceptions.**
+
+**Before starting ANY work:**
+1. Add task to Todoist (right project, priority, due date)
+2. Add initial comment with context/plan
+3. Do the work
+4. Update with progress comments
+5. Mark done when complete
+
+**Read:** `/root/clawd/TODOIST-WORKFLOW.md` for full workflow
+
+**Quick add:**
+```bash
+todoist add "Task name" -p "Clarke - [Project]" --priority N --due "date"
+todoist comment <id> "Initial plan: ..."
+```
+
+**Projects:**
+- **Clarke - Autonomous Work** - Long-term optimization
+- **Clarke - Planned Tasks** - Scheduled/requested work
+- **Clarke - Backburner** - Low priority/blocked
+- **Clarke - Recurring Systems** - Automated routines
+
+**Pattern:** Add to Todoist → Do work → Update comments → Mark done
+
 **Memory discipline:** After EVERY significant action (build, schedule, learn), write to today's memory file IMMEDIATELY. Then run `bash /root/clawd/scripts/memory-auto-commit.sh` to commit changes. No batching, no delays.
 
 **Triggers - Write memory NOW when you:**
