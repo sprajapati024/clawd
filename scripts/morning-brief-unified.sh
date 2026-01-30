@@ -80,6 +80,22 @@ fi
 
 echo "" >> "$BRIEF_FILE"
 
+# TODAY'S TASKS (Todoist)
+echo "📋 TODAY'S TASKS" >> "$BRIEF_FILE"
+
+# Get today's tasks from Todoist
+TODAY_TASKS=$(todoist today 2>/dev/null)
+if [ -n "$TODAY_TASKS" ]; then
+    echo "$TODAY_TASKS" | while IFS= read -r line; do
+        # Extract task ID and description, format nicely
+        echo "• $line" >> "$BRIEF_FILE"
+    done
+else
+    echo "✅ No tasks due today" >> "$BRIEF_FILE"
+fi
+
+echo "" >> "$BRIEF_FILE"
+
 # OVERNIGHT WORK (Autonomous Tasks)
 OVERNIGHT_WORK_FILE="/tmp/overnight-work-$(date +%Y%m%d).txt"
 if [ -f "$OVERNIGHT_WORK_FILE" ]; then
