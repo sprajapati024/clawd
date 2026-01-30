@@ -348,3 +348,85 @@ Executed 1 trades:
 [0;32m[2026-01-30 20:03:49] [INFO] ==========================================[0m
 [0;32m[2026-01-30 20:03:49] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
 [0;32m[2026-01-30 20:03:49] [INFO] ==========================================[0m
+[0;32m[2026-01-30 21:30:01] [INFO] ==========================================[0m
+[0;32m[2026-01-30 21:30:01] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Date: Fri Jan 30 09:30:01 PM UTC 2026[0m
+[0;32m[2026-01-30 21:30:01] [INFO] ==========================================[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+⚠️ No API key, using fallback analysis
+🔄 Using fallback analysis...
+✅ Fallback analysis completed
+📊 Analysis source: FALLBACK
+📈 Market condition: BULLISH
+🎯 Recommendations: 3
+📋 Found 3 recommendations
+🔄 Executing 3 trade recommendations...
+  [1/3] BUY 2 AAPL @ $153.00
+    Executing BUY order...
+✅ Bought 2 shares of AAPL at $153.00 each (Total: $306.00)
+   Reasoning: Fallback: bullish market, technical setup
+    ✅ Executed successfully
+  [2/3] SELL 1 TSLA @ $169.36
+    Executing SELL order...
+✅ Sold 1 shares of TSLA at $169.36 each (Total: $169.36)
+   Realized P&L: $-2.22
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+  [3/3] SELL 1 NVDA @ $116.56
+    Executing SELL order...
+✅ Sold 1 shares of NVDA at $116.56 each (Total: $116.56)
+   Realized P&L: $-0.80
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+
+📊 EXECUTION SUMMARY:
+  • Recommendations: 3
+  • Executed: 3 ✅
+  • Skipped: 0 ⚠️
+  • Failed: 0 ❌
+
+📊 TRADING REPORT
+Time: 2026-01-30 21:30:01 EST
+
+📈 MARKET: BULLISH
+Summary: Buying interest increasing throughout the session.
+
+💰 PORTFOLIO SNAPSHOT
+Cash: $8907.24
+Invested: $1057.34
+Market Value: $1067.28
+Total Value: $9974.52
+Total P&L: $9.94
+Return: $-25.48 (-0.25%)
+
+🔄 TRADE EXECUTION
+Executed 3 trades:
+  • BUY 2 AAPL @ $153.00
+  • SELL 1 TSLA @ $169.36
+  • SELL 1 NVDA @ $116.56
+
+🎯 ACTIVE RECOMMENDATIONS
+  • BUY AAPL (Confidence: 6/10)
+    Fallback: bullish market, technical setup
+  • SELL TSLA (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+  • SELL NVDA (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+[0;32m[2026-01-30 21:30:01] [INFO] Trades executed: 3[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 5: Generating daily report...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Daily report generated: /root/clawd/projects/day-trader/logs/report_20260130.txt[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 6: Backing up data...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Backup created: /root/clawd/projects/day-trader/backups/backup_20260130_213001.tar.gz (4.0K)[0m
+[0;32m[2026-01-30 21:30:01] [INFO] Step 7: Cleaning up old logs...[0m
+[0;32m[2026-01-30 21:30:01] [INFO] ==========================================[0m
+[0;32m[2026-01-30 21:30:01] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
+[0;32m[2026-01-30 21:30:01] [INFO] ==========================================[0m
