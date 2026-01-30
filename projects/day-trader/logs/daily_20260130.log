@@ -70,3 +70,281 @@
 [0;32m[2026-01-30 13:43:06] [INFO] ==========================================[0m
 [0;32m[2026-01-30 13:43:06] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
 [0;32m[2026-01-30 13:43:06] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:36:30] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:36:30] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Date: Fri Jan 30 07:36:30 PM UTC 2026[0m
+[0;32m[2026-01-30 19:36:30] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 19:36:30] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 19:36:31] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+🔍 Attempting AI analysis...
+⚠️ AI analysis failed: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions
+🔄 Using fallback analysis...
+✅ Fallback analysis completed
+📊 Analysis source: FALLBACK
+📈 Market condition: BEARISH
+🎯 Recommendations: 1
+📋 Found 1 recommendations
+🔄 Executing 1 trade recommendations...
+  [1/1] SELL 3 AAPL @ $148.79
+    Executing SELL order...
+✅ Sold 3 shares of AAPL at $148.79 each (Total: $446.37)
+   Realized P&L: $10.14
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+
+📊 EXECUTION SUMMARY:
+  • Recommendations: 1
+  • Executed: 1 ✅
+  • Skipped: 0 ⚠️
+  • Failed: 0 ❌
+
+📊 TRADING REPORT
+Time: 2026-01-30 19:36:31 EST
+
+📈 MARKET: BEARISH
+Summary: Profit-taking observed in growth sectors.
+
+💰 PORTFOLIO SNAPSHOT
+Cash: $7894.49
+Invested: $2115.65
+Market Value: $2319.52
+Total Value: $10214.01
+Total P&L: $203.87
+Return: $214.01 (2.14%)
+
+🔄 TRADE EXECUTION
+Executed 1 trades:
+  • SELL 3 AAPL @ $148.79
+
+🎯 ACTIVE RECOMMENDATIONS
+  • SELL AAPL (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+[0;32m[2026-01-30 19:36:31] [INFO] Trades executed: 1[0m
+[0;32m[2026-01-30 19:36:31] [INFO] Step 5: Generating daily report...[0m
+[0;32m[2026-01-30 19:36:31] [INFO] Daily report generated: /root/clawd/projects/day-trader/logs/report_20260130.txt[0m
+[0;32m[2026-01-30 19:36:34] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:36:34] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 19:36:34] [INFO] Date: Fri Jan 30 07:36:34 PM UTC 2026[0m
+[0;32m[2026-01-30 19:36:34] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+🔍 Attempting AI analysis...
+⚠️ AI analysis failed: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions
+🔄 Using fallback analysis...
+✅ Fallback analysis completed
+📊 Analysis source: FALLBACK
+📈 Market condition: BEARISH
+🎯 Recommendations: 1
+📋 Found 1 recommendations
+🔄 Executing 1 trade recommendations...
+  [1/1] SELL 3 NVDA @ $113.92
+    Executing SELL order...
+✅ Sold 3 shares of NVDA at $113.92 each (Total: $341.76)
+   Realized P&L: $-10.32
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+
+📊 EXECUTION SUMMARY:
+  • Recommendations: 1
+  • Executed: 1 ✅
+  • Skipped: 0 ⚠️
+  • Failed: 0 ❌
+
+📊 TRADING REPORT
+Time: 2026-01-30 19:36:35 EST
+
+📈 MARKET: BEARISH
+Summary: Market under pressure with defensive rotation.
+
+💰 PORTFOLIO SNAPSHOT
+Cash: $8236.25
+Invested: $1763.57
+Market Value: $1822.79
+Total Value: $10059.04
+Total P&L: $59.22
+Return: $59.04 (0.59%)
+
+🔄 TRADE EXECUTION
+Executed 1 trades:
+  • SELL 3 NVDA @ $113.92
+
+🎯 ACTIVE RECOMMENDATIONS
+  • SELL NVDA (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+[0;32m[2026-01-30 19:36:35] [INFO] Trades executed: 1[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 5: Generating daily report...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Daily report generated: /root/clawd/projects/day-trader/logs/report_20260130.txt[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 6: Backing up data...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Backup created: /root/clawd/projects/day-trader/backups/backup_20260130_193635.tar.gz (4.0K)[0m
+[0;32m[2026-01-30 19:36:35] [INFO] Step 7: Cleaning up old logs...[0m
+[0;32m[2026-01-30 19:36:35] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:36:35] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
+[0;32m[2026-01-30 19:36:35] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:37:15] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:37:15] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Date: Fri Jan 30 07:37:15 PM UTC 2026[0m
+[0;32m[2026-01-30 19:37:15] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+🔍 Attempting AI analysis...
+⚠️ AI analysis failed: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions
+🔄 Using fallback analysis...
+✅ Fallback analysis completed
+📊 Analysis source: FALLBACK
+📈 Market condition: BEARISH
+🎯 Recommendations: 2
+📋 Found 2 recommendations
+🔄 Executing 2 trade recommendations...
+  [1/2] SELL 1 AAPL @ $146.87
+    Executing SELL order...
+✅ Sold 1 shares of AAPL at $146.87 each (Total: $146.87)
+   Realized P&L: $1.46
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+  [2/2] SELL 2 NVDA @ $101.61
+    Executing SELL order...
+✅ Sold 2 shares of NVDA at $101.61 each (Total: $203.22)
+   Realized P&L: $-31.50
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+
+📊 EXECUTION SUMMARY:
+  • Recommendations: 2
+  • Executed: 2 ✅
+  • Skipped: 0 ⚠️
+  • Failed: 0 ❌
+
+📊 TRADING REPORT
+Time: 2026-01-30 19:37:15 EST
+
+📈 MARKET: BEARISH
+Summary: Market under pressure with defensive rotation.
+
+💰 PORTFOLIO SNAPSHOT
+Cash: $8586.34
+Invested: $1383.44
+Market Value: $1438.26
+Total Value: $10024.60
+Total P&L: $54.82
+Return: $24.60 (0.25%)
+
+🔄 TRADE EXECUTION
+Executed 2 trades:
+  • SELL 1 AAPL @ $146.87
+  • SELL 2 NVDA @ $101.61
+
+🎯 ACTIVE RECOMMENDATIONS
+  • SELL AAPL (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+  • SELL NVDA (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+[0;32m[2026-01-30 19:37:15] [INFO] Trades executed: 2[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 5: Generating daily report...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Daily report generated: /root/clawd/projects/day-trader/logs/report_20260130.txt[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 6: Backing up data...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Backup created: /root/clawd/projects/day-trader/backups/backup_20260130_193715.tar.gz (4.0K)[0m
+[0;32m[2026-01-30 19:37:15] [INFO] Step 7: Cleaning up old logs...[0m
+[0;32m[2026-01-30 19:37:15] [INFO] ==========================================[0m
+[0;32m[2026-01-30 19:37:15] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
+[0;32m[2026-01-30 19:37:15] [INFO] ==========================================[0m
+[0;32m[2026-01-30 20:02:53] [INFO] ==========================================[0m
+[0;32m[2026-01-30 20:02:53] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Date: Fri Jan 30 08:02:53 PM UTC 2026[0m
+[0;32m[2026-01-30 20:02:53] [INFO] ==========================================[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 20:02:53] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 20:03:19] [INFO] ==========================================[0m
+[0;32m[2026-01-30 20:03:19] [INFO] DAILY TRADING ROUTINE STARTED[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Date: Fri Jan 30 08:03:19 PM UTC 2026[0m
+[0;32m[2026-01-30 20:03:19] [INFO] ==========================================[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Step 1: Checking market status...[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Market status: closed[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Step 2: Fetching latest prices...[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Prices saved to /tmp/latest_prices.json[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Step 3: Updating portfolio prices...[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Portfolio prices updated[0m
+[0;32m[2026-01-30 20:03:19] [INFO] Step 4: Running trading analysis...[0m
+[0;32m[2026-01-30 20:03:49] [INFO] Trading analysis completed successfully[0m
+🤖 Trading Decision Engine Test
+🔍 Analyzing market...
+🔍 Attempting AI analysis...
+⚠️ AI analysis failed: HTTPSConnectionPool(host='api.deepseek.com', port=443): Read timed out.
+🔄 Using fallback analysis...
+✅ Fallback analysis completed
+📊 Analysis source: FALLBACK
+📈 Market condition: BEARISH
+🎯 Recommendations: 1
+📋 Found 1 recommendations
+🔄 Executing 1 trade recommendations...
+  [1/1] SELL 2 TSLA @ $170.49
+    Executing SELL order...
+✅ Sold 2 shares of TSLA at $170.49 each (Total: $340.98)
+   Realized P&L: $-2.18
+   Reasoning: Fallback: Profit taking on existing position
+    ✅ Executed successfully
+
+📊 EXECUTION SUMMARY:
+  • Recommendations: 1
+  • Executed: 1 ✅
+  • Skipped: 0 ⚠️
+  • Failed: 0 ❌
+
+📊 TRADING REPORT
+Time: 2026-01-30 20:03:49 EST
+
+📈 MARKET: BEARISH
+Summary: Profit-taking observed in growth sectors.
+
+💰 PORTFOLIO SNAPSHOT
+Cash: $8927.32
+Invested: $1040.28
+Market Value: $1020.33
+Total Value: $9947.65
+Total P&L: $-19.95
+Return: $-52.35 (-0.52%)
+
+🔄 TRADE EXECUTION
+Executed 1 trades:
+  • SELL 2 TSLA @ $170.49
+
+🎯 ACTIVE RECOMMENDATIONS
+  • SELL TSLA (Confidence: 7/10)
+    Fallback: Profit taking on existing position
+[0;32m[2026-01-30 20:03:49] [INFO] Trades executed: 1[0m
+[0;32m[2026-01-30 20:03:49] [INFO] Step 5: Generating daily report...[0m
+[0;32m[2026-01-30 20:03:49] [INFO] Daily report generated: /root/clawd/projects/day-trader/logs/report_20260130.txt[0m
+[0;32m[2026-01-30 20:03:49] [INFO] Step 6: Backing up data...[0m
+[0;32m[2026-01-30 20:03:49] [INFO] Backup created: /root/clawd/projects/day-trader/backups/backup_20260130_200349.tar.gz (4.0K)[0m
+[0;32m[2026-01-30 20:03:49] [INFO] Step 7: Cleaning up old logs...[0m
+[0;32m[2026-01-30 20:03:49] [INFO] ==========================================[0m
+[0;32m[2026-01-30 20:03:49] [INFO] DAILY ROUTINE COMPLETED SUCCESSFULLY[0m
+[0;32m[2026-01-30 20:03:49] [INFO] ==========================================[0m

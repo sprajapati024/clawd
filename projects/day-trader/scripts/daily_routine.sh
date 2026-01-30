@@ -220,17 +220,46 @@ log INFO "=========================================="
 log INFO "DAILY ROUTINE COMPLETED SUCCESSFULLY"
 log INFO "=========================================="
 
-# Send notification (if configured)
+# Send Telegram notification using TelegramReporter (if configured)
 if [ -n "$TELEGRAM_BOT_TOKEN" ] && [ -n "$TELEGRAM_CHAT_ID" ]; then
-    log INFO "Sending Telegram notification..."
-    MESSAGE="✅ Daily trading routine completed at $(date '+%H:%M:%S EST')
-📊 Portfolio Value: \$$(python3 -c "from portfolio import get_performance; p=get_performance(); print(f'{p[\"total_value\"]:.2f}')")
-📈 Daily Return: \$$(python3 -c "from portfolio import get_performance; p=get_performance(); print(f'{p[\"total_return\"]:.2f} ({p[\"total_return_pct\"]:.2f}%)')")"
+    log INFO "Sending Telegram notification via TelegramReporter..."
     
-    curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage" \
-        -d chat_id="$TELEGRAM_CHAT_ID" \
-        -d text="$MESSAGE" \
-        -d parse_mode="Markdown" >/dev/null 2>&1 || log WARN "Failed to send Telegram notification"
+    # Use Python to generate proper Telegram report
+    python3 -c "
+import sys
+sys.path.insert(0, '$PROJECT_DIR')
+from telegram_reporter import TelegramReporter
+from portfolio import get_performance
+import json
+
+# Initialize reporter
+reporter = TelegramReporter(bot_token='$TELEGRAM_BOT_TOKEN', chat_id='$TELEGRAM_CHAT_ID')
+
+# Get portfolio data
+portfolio_data = get_performance()
+
+# Read trade results from analysis file
+trade_data = {'executed_trades': [], 'skipped_trades': [], 'errors': [], 'summary': {'total_recommendations': 0, 'executed': 0, 'skipped': 0, 'failed': 0}}
+analysis_data = {'market_condition': 'unknown', 'market_summary': 'Analysis completed', 'trade_recommendations': [], 'analysis_source': 'daily_routine'}
+
+try:
+    # Try to read analysis results
+    with open('$PROJECT_DIR/logs/analysis_results.json', 'r') as f:
+        analysis_results = json.load(f)
+        trade_data = analysis_results.get('trade_results', trade_data)
+        analysis_data.update(analysis_results.get('market_analysis', {}))
+except:
+    pass
+
+# Generate and send daily summary
+summary = reporter.format_daily_summary(portfolio_data, trade_data, analysis_data)
+success = reporter.send_message(summary)
+
+if success:
+    print('✅ Telegram notification sent successfully')
+else:
+    print('⚠️ Failed to send Telegram notification')
+" || log WARN "Failed to send Telegram notification via TelegramReporter"
 fi
 
 exit 0

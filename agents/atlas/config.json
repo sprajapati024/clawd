@@ -1,0 +1,12 @@
+{
+  "todoist_cli": "/usr/bin/todoist",
+  "auto_sync_heartbeat": true,
+  "comment_prefix": "[Atlas]",
+  "never_delete": true,
+  "default_projects": [
+    "Clarke - Autonomous Work",
+    "Clarke - Planned Tasks",
+    "Clarke - Backburner",
+    "Clarke - Recurring Systems"
+  ]
+}

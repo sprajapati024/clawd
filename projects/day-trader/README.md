@@ -7,31 +7,39 @@ A fully automated day trading bot system with AI-powered decision making, portfo
 
 ### Core Components
 - **Portfolio Management**: Track holdings, cash, trades, and performance
-- **AI Trading Engine**: DeepSeek-powered market analysis and trade decisions
-- **Daily Automation**: Scheduled trading routine (4:30 PM EST)
+- **AI Trading Engine**: DeepSeek-powered market analysis with fallback mechanisms
+- **Daily Automation**: Scheduled trading routine (4:30 PM EST) with guaranteed output
 - **Risk Management**: Position limits, stop losses, take profits
-- **Telegram Integration**: Portfolio reviews and notifications
+- **Telegram Integration**: Formatted portfolio reports and trade notifications
+- **Deterministic Testing**: Mock data system for cost-effective development
+- **Guaranteed Output**: No silent runs - always produces logs and reports
 
 ### Key Benefits
 - 🤖 **Fully Autonomous**: Runs daily without manual intervention
-- 🧠 **AI-Powered**: Uses DeepSeek for intelligent trading decisions
+- 🧠 **AI-Powered**: Uses DeepSeek for intelligent trading decisions with fallback analysis
 - 📊 **Risk Managed**: Strict position limits and risk controls
-- 📱 **Telegram Ready**: Clean portfolio summaries and notifications
+- 📱 **Telegram Ready**: Formatted daily summaries with no-trade reasons
 - 🔄 **Automated Backups**: Daily data backup and log rotation
+- ✅ **Guaranteed Output**: No silent runs - always produces visible results
+- 💰 **Cost Discipline**: Mock data for testing, local-first approach
+- 🧪 **Deterministic Testing**: Same output every test run for reliability
 
 ## 📁 Project Structure
 ```
 /root/clawd/projects/day-trader/
 ├── portfolio.py              # Portfolio management core
+├── telegram_reporter.py      # Formatted Telegram notifications
+├── mock_data.py              # Deterministic test data generator
+├── test_system.py            # End-to-end system test
+├── DESIGN-WORKFLOW.md        # Architecture and workflow design
 ├── scripts/
-│   ├── trader.py            # AI trading decision engine
-│   ├── daily_routine.sh     # Daily automation script
+│   ├── trader.py            # AI trading engine with fallback
+│   ├── daily_routine.sh     # Daily automation with Telegram integration
 │   └── portfolio_review.py  # Portfolio review command
 ├── logs/                    # Execution logs and reports
 ├── backups/                 # Data backups
 ├── TOOLS.md                # Complete documentation
-├── INSTALL.md              # Installation guide
-└── test_system.py          # System test
+└── INSTALL.md              # Installation guide
 ```
 
 ## 🚦 Quick Start

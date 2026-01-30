@@ -3,116 +3,196 @@
 # Keep this file empty (or with only comments) to skip heartbeat API calls.
 # Add tasks below when you want the agent to check something periodically.
 
-## When to Act vs Stay Silent
-- **Act (respond with work/findings)** when:
-  - Security alerts detected
-  - System resources critically low
-  - Autonomous work completed
-  - Something needs Shirin's attention
-  
-- **Stay silent (witty one-liner)** when:
-  - All checks pass, nothing to report
-  - Late night (11 PM - 7 AM) unless urgent
-  - Last check was < 30 minutes ago
-  
-**Examples of witty responses (vary these, be creative):**
-- "All quiet on the western server. 👓"
-- "Manor's secure. No intruders, no fires."
-- "Everything's running like clockwork. Boring, I know."
-- "Nothing to report. You're not paying me enough for this level of calm."
-- "Still here. Still watching. Still unimpressed by these SSH script kiddies."
-- "Systems green. I'm getting soft with all this stability."
-- "Another flawless hour. Try to contain your surprise."
+## Proactive Status Reporting (Every 30 minutes)
+**NEVER respond with "HEARTBEAT_OK" or witty one-liners.** Always provide a status report.
+
+### Report structure:
+```
+**Heartbeat [TIME EST]**
+- ✅ [What's working]
+- ⚠️ [What's blocked/needs attention]
+- 📋 [What's next]
+- 🔄 [Active sub-agents]
+- 📊 [System health]
+
+**Action needed:** [None / Review X / Decision on Y]
+```
+
+### What to check (every heartbeat):
+1. **Active sub-agents** - Progress, blockers, ETA
+2. **Todoist tasks** - Overdue, completed, upcoming
+3. **System health** - VPS monitoring alerts
+4. **Autonomous work** - Progress on TASKS.json items
+5. **Anything needing Shirin's attention** - Decisions, reviews, approvals
+
+### Late night exception (11 PM - 7 AM EST):
+- Only report if urgent (security, system down)
+- Otherwise: "Night shift quiet. Systems stable."
+
+### Why this matters:
+- Shirin shouldn't have to ask "?"
+- Surface blockers before they become problems
+- Show momentum, not just "all quiet"
 
 ---
 
-## Security Monitoring (Every 2-3 hours during day)
-Check security logs and system health. Report if:
-- Failed SSH login attempts > 50 in last 24h
-- Unusual network activity detected
-- Firewall rules changed
-- New processes listening on ports
+## Security Monitoring (Every heartbeat)
+Check security logs and system health. **Always report status.**
 
-**Tools:**
-- `/var/log/auth.log` - SSH attempts
-- `ss -tlnp` - listening ports
+**Checks:**
+- Failed SSH login attempts (last 24h)
+- Unusual network activity
+- Firewall rule changes
+- New processes listening on ports
 - `/var/log/clarke-monitor/alerts.log` - automated alerts
 
-**Action:** If threats found, summarize and alert. Otherwise, HEARTBEAT_OK.
+**Tools:**
+- `/root/clawd/scripts/security-monitor.sh` - Automated security check
+- `/var/log/auth.log` - SSH attempts
+- `ss -tlnp` - listening ports
+- `sudo fail2ban-client status` - banned IPs
+
+**Report format:**
+- ✅ Security: No threats detected
+- ⚠️ Security: [X] failed SSH attempts in 24h
+- 🔴 Security: [Critical alert details]
 
 ---
 
-## System Maintenance (Every 4-6 hours)
-Check system resources and perform housekeeping:
-- Disk usage > 80%?
-- Memory usage > 85%?
-- Log rotation needed?
-- Stale temp files in `/tmp/`?
+## System Health (Every heartbeat)
+Check system resources. **Always report status.**
+
+**Checks:**
+- Disk usage (alert if >80%)
+- Memory usage (alert if >85%)
+- CPU load (alert if >90%)
+- Service status (Clawdbot, monitoring)
+- Log health (rotation needed?)
 
 **Tools:**
 - `df -h` - disk usage
 - `free -h` - memory usage
+- `uptime` - CPU load
+- `systemctl status clawdbot` - service check
 - `/var/log/clarke-monitor/health.log` - monitoring data
 
-**Action:** Auto-fix when safe (cleanup old logs, clear temp files). Report if manual intervention needed.
+**Report format:**
+- ✅ System: Disk 45%, Memory 60%, CPU 12%
+- ⚠️ System: Disk 82% (cleanup needed)
+- 🔴 System: Service down [details]
 
 ---
 
-## Overnight Autonomous Work (1-5 AM EST)
-When heartbeat runs during 1-5 AM window AND I haven't worked on autonomous tasks yet today:
-1. Check `/root/clawd/TASKS.json` autonomous queue
-2. Pick highest priority incomplete task
-3. Work for 30-90 minutes (make real progress)
-4. Update progress in TASKS.json (%, milestones)
-5. Commit changes to git
-6. Write summary to `/tmp/overnight-work-YYYYMMDD.txt`:
-   - Task worked on
-   - What got done (specific milestones/code/results)
-   - Progress % or measurable outcome
-   - Next steps
+## Active Work Tracking (Every heartbeat)
+Check all active work and report progress.
 
-**Morning brief (5 AM) will pick this up automatically.**
+**What to check:**
+1. **Sub-agents** - Status, progress, blockers
+2. **Todoist tasks** - Overdue, completed, upcoming
+3. **TASKS.json autonomous queue** - Progress, next steps
+4. **Git commits** - Recent changes, uncommitted work
+
+**Report format:**
+- 🔄 Sub-agent "day-trader-workflow": Design phase, ETA 10m
+- ✅ Todoist: 3 tasks completed today
+- 📋 TASKS.json: "Mistral hybrid" 40% complete
+- 📝 Git: Last commit 2h ago, no uncommitted changes
+
+**Overnight work (1-5 AM EST):**
+If in window AND haven't worked on autonomous tasks today:
+1. Pick highest priority task from TASKS.json
+2. Work 30-90 minutes
+3. Update progress
+4. Commit changes
+5. Report in next heartbeat
+
+## Todoist Ticketing System (Every heartbeat)
+Check for new tickets and autonomous work opportunities.
+
+**What to check:**
+1. **New tickets** - Look for "[TICKET]" prefix in Todoist
+2. **Priority 1 tickets** - High priority items needing attention
+3. **Blocked tickets** - Items waiting on decisions/approvals
+4. **Autonomous opportunities** - Tickets I can complete without asking
+
+**Autonomous decision criteria:**
+- ✅ **Can complete without asking:** Routine fixes, configuration changes, script updates
+- ⚠️ **Need to ask first:** External actions, cost implications, architectural changes
+- 🔴 **Must discuss:** Major system changes, new integrations, budget decisions
+
+**Process:**
+1. Scan Todoist for "[TICKET]" items
+2. Assess if I can complete autonomously
+3. If yes → complete and update ticket
+4. If no → ask for permission/decision in heartbeat report
+5. Always report ticket status in heartbeat
+
+**Example report:**
+- 📋 Tickets: 2 new, 1 completed, 1 needs decision
+- 🤖 Autonomous: Fixed API timeout (Ticket #123)
+- ❓ Need decision: Market data API integration (cost $10/mo)
 
 ---
 
-## Memory System Review (Every 3-4 hours during active work)
-Use memory CLI tools we built:
-- `memory search <query>` - Before re-reading files
-- `memory stats` - Check file health
-- ONE file per day rule - merge if fragments exist
+## Memory System Review (Every heartbeat)
+**MANDATORY:** Check memory capture discipline and system health.
 
-**Action:** Maintenance only (merge fragments, fix issues). Don't spam reports.
+**What to check:**
+1. **Memory writing discipline** - Did I write immediately after significant actions?
+2. **Recent commits** - Are memory changes being committed?
+3. **File fragmentation** - Multiple memory files for same day?
+4. **Session freshness** - Context usage, age, compactions
+5. **Self-review** - Mistakes, forgotten items, failure modes
 
----
-
-## Self-Review (Every 3-4 hours during active work)
-Review last session block. Document in today's memory file:
-- Mistakes made
-- Things forgotten that should have been remembered
-- Repeated mistakes
-- Failure modes (timezone, memory loss, not using tools)
-- **Memory writing discipline:** Did I write immediately after significant actions?
-- **Session freshness:** Did I suggest /new when appropriate?
-
-**Write to:** `memory/YYYY-MM-DD.md` under `## Self-Review`
-**Track:** Timezone errors, memory loss, forgetting systems we built, delayed memory writes, stale sessions
-
-**Check memory status:**
+**Checks to run:**
 ```bash
 bash /root/clawd/scripts/memory-check.sh
+📊 session_status
 ```
 
-**Check session freshness:**
-- Run `📊 session_status`
-- Note context usage, session age, compactions
-- Suggest `/new` if: context > 75%, age > 8h, compactions > 2
+**Report format:**
+- ✅ Memory: Recent commits, single file per day
+- ⚠️ Memory: Fragmentation detected, needs merge
+- 🔴 Memory: No recent commits, slipping discipline
+- 📊 Session: Context X%, Age Xh, Compactions X
 
-**Action:** Write learnings, commit to git. Silent unless critical pattern found.
+**Self-review questions (answer in memory file):**
+1. Did I write to memory immediately after significant actions?
+2. Did I forget something I should have remembered?
+3. Any timezone errors or memory loss?
+4. Did I suggest /new when appropriate?
+
+**Action:** Write self-review to `memory/YYYY-MM-DD.md` under `## Self-Review`, commit changes. Report status in heartbeat.
 
 ---
 
-## Notes
+## Memory Capture Discipline (Every heartbeat)
+**Goal:** Never let things slip through the cracks.
+
+**Triggers - Write memory NOW when you:**
+- Build/create/configure something
+- Make a decision or choose an approach
+- Learn something new or solve a problem
+- Complete a task or reach milestone
+- Make a mistake or encounter failure
+- Schedule/postpone work
+
+**Pattern:** Do → Write → Commit → Reply (in that order)
+
+**Checklist:**
+- ✅ Memory file exists for today
+- ✅ Recent changes committed (last 30 minutes)
+- ✅ No fragmentation (only one file per day)
+- ✅ Self-review section updated
+- ✅ Session freshness monitored
+
+**Reference:** See `/root/clawd/docs/CHECKLIST-memory-writing.md` for full checklist
+
+---
+
+## Implementation Notes
 - **Frequency:** Heartbeat polls every ~30 minutes (configurable)
-- **Time-based checks:** Use CRON for exact timing, heartbeat for "every few hours"
-- **Token efficiency:** Batch similar checks in one turn
-- **Proactive work:** Can read/organize/commit without asking
+- **Always report:** No more "HEARTBEAT_OK" or witty one-liners
+- **Structure:** Use the report format above consistently
+- **Late night:** Only urgent reports 11 PM - 7 AM EST
+- **Goal:** Shirin never has to ask "?" — status is always visible

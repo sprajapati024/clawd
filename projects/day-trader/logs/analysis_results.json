@@ -1,0 +1,32 @@
+{
+  "trade_results": {
+    "executed_trades": [
+      {
+        "symbol": "AAPL",
+        "action": "BUY",
+        "shares": 5,
+        "price": 150.0,
+        "reasoning": "Technical breakout"
+      }
+    ],
+    "skipped_trades": [
+      {
+        "symbol": "GOOGL",
+        "reason": "Insufficient cash"
+      }
+    ],
+    "errors": [],
+    "summary": {
+      "total_recommendations": 2,
+      "executed": 1,
+      "skipped": 1,
+      "failed": 0
+    }
+  },
+  "market_analysis": {
+    "market_condition": "neutral",
+    "market_summary": "Market consolidating after earnings season",
+    "trade_recommendations": [],
+    "analysis_source": "ai"
+  }
+}
