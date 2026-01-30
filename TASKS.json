@@ -66,17 +66,7 @@
         ]
       }
     ],
-    "in_progress": [
-      {
-        "id": "gmail-cleanup-plan",
-        "title": "Gmail Inbox Analysis & Cleanup Plan",
-        "description": "Scan 18,400 emails, categorize by sender/age/type, create cleanup strategy",
-        "priority": "high",
-        "started": "2026-01-29",
-        "estimatedCompletion": "2026-01-30",
-        "status": "scheduled for 1 AM tonight"
-      }
-    ],
+    "in_progress": [],
     "planned": [
       {
         "id": "smart-home-integration",
