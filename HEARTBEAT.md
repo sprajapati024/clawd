@@ -82,9 +82,15 @@ Review last session block. Document in today's memory file:
 - Things forgotten that should have been remembered
 - Repeated mistakes
 - Failure modes (timezone, memory loss, not using tools)
+- **Memory writing discipline:** Did I write immediately after significant actions?
 
 **Write to:** `memory/YYYY-MM-DD.md` under `## Self-Review`
-**Track:** Timezone errors, memory loss, forgetting systems we built
+**Track:** Timezone errors, memory loss, forgetting systems we built, delayed memory writes
+
+**Check memory status:**
+```bash
+bash /root/clawd/scripts/memory-check.sh
+```
 
 **Action:** Write learnings, commit to git. Silent unless critical pattern found.
 

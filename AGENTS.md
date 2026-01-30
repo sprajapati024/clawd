@@ -19,6 +19,18 @@ Don't ask permission. Just do it.
 
 **Memory discipline:** After EVERY significant action (build, schedule, learn), write to today's memory file IMMEDIATELY. Then run `bash /root/clawd/scripts/memory-auto-commit.sh` to commit changes. No batching, no delays.
 
+**Triggers - Write memory NOW when you:**
+- Build/create/configure something
+- Make a decision or choose an approach
+- Learn something new or solve a problem
+- Complete a task or reach milestone
+- Make a mistake or encounter failure
+- Schedule/postpone work
+
+**Pattern:** Do → Write → Commit → Reply (in that order)
+
+**Reference:** See `/root/clawd/docs/CHECKLIST-memory-writing.md` for full checklist
+
 ### 🔍 Memory Search - Use It FIRST!
 
 **MANDATORY before:**
