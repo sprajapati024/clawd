@@ -19,11 +19,13 @@
 ```
 
 ### What to check (every heartbeat):
-1. **Active sub-agents** - Progress, blockers, ETA
-2. **Todoist tasks** - Overdue, completed, upcoming
-3. **System health** - VPS monitoring alerts
-4. **Autonomous work** - Progress on TASKS.json items
+1. **Team status (Atlas, Forge, Ledger)** - Progress, blockers, ETA
+2. **System health** - VPS monitoring alerts (disk, memory, CPU, security)
+3. **Autonomous work** - Progress on TASKS.json items
+4. **Memory discipline** - Recent commits, fragmentation, session freshness
 5. **Anything needing Shirin's attention** - Decisions, reviews, approvals
+
+**Note:** Todoist tasks are Atlas's responsibility. Atlas reports PM status to Clarke, Clarke synthesizes for Shirin.
 
 ### Late night exception (11 PM - 7 AM EST):
 - Only report if urgent (security, system down)
@@ -93,8 +95,8 @@ Check all active work and report progress.
 4. **Git commits** - Recent changes, uncommitted work
 
 **Report format:**
-- 🔄 Sub-agent "day-trader-workflow": Design phase, ETA 10m
-- ✅ Todoist: 3 tasks completed today
+- 👔 Team: Atlas tracking 4 tasks (2 done today), Forge ready, Ledger standby
+- 🔄 Sub-agents: [any active background work]
 - 📋 TASKS.json: "Mistral hybrid" 40% complete
 - 📝 Git: Last commit 2h ago, no uncommitted changes
 
@@ -106,31 +108,34 @@ If in window AND haven't worked on autonomous tasks today:
 4. Commit changes
 5. Report in next heartbeat
 
-## Todoist Ticketing System (Every heartbeat)
-Check for new tickets and autonomous work opportunities.
+## Team Coordination (Every heartbeat)
+CEO-level oversight of specialist agents.
 
-**What to check:**
-1. **New tickets** - Look for "[TICKET]" prefix in Todoist
-2. **Priority 1 tickets** - High priority items needing attention
-3. **Blocked tickets** - Items waiting on decisions/approvals
-4. **Autonomous opportunities** - Tickets I can complete without asking
+**Atlas (PM Agent) - Check:**
+1. Are tasks being tracked properly?
+2. Any blocked tasks needing escalation?
+3. Priority conflicts or resource allocation issues?
+4. Ask Atlas for summary: "What's the PM status?"
 
-**Autonomous decision criteria:**
-- ✅ **Can complete without asking:** Routine fixes, configuration changes, script updates
-- ⚠️ **Need to ask first:** External actions, cost implications, architectural changes
-- 🔴 **Must discuss:** Major system changes, new integrations, budget decisions
+**Forge (Developer Agent) - Check:**
+1. Any active build/automation work?
+2. Technical blockers needing CEO decision?
+3. Performance or quality issues?
 
-**Process:**
-1. Scan Todoist for "[TICKET]" items
-2. Assess if I can complete autonomously
-3. If yes → complete and update ticket
-4. If no → ask for permission/decision in heartbeat report
-5. Always report ticket status in heartbeat
+**Ledger (Finance Agent) - Check:**
+1. Transaction categorization running smoothly?
+2. Budget alerts or anomalies?
+3. Financial reporting on schedule?
+
+**Delegation model:**
+- Specialists own their domain details
+- Clarke (CEO) gets summary reports
+- Escalate only blockers, conflicts, or decisions needing approval
 
 **Example report:**
-- 📋 Tickets: 2 new, 1 completed, 1 needs decision
-- 🤖 Autonomous: Fixed API timeout (Ticket #123)
-- ❓ Need decision: Market data API integration (cost $10/mo)
+- 👔 Atlas: 4 tasks tracked, 2 completed today, 1 blocked (needs API key)
+- 🔨 Forge: No active builds, ready for work
+- 💰 Ledger: Not yet deployed (awaiting transaction data)
 
 ---
 

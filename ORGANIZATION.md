@@ -27,10 +27,18 @@
 
 ### Atlas (PM Agent)
 - **Reports to:** Clarke
-- **Specialty:** Task and project management
-- **Tools:** Todoist CLI, status tracking
-- **Autonomy:** Can mark tasks done, add comments, generate reports
-- **Escalates to Clarke:** Major blockers, priority conflicts, new project requests
+- **Specialty:** Task and project management (owns all Todoist/PM operations)
+- **Tools:** Todoist CLI, status tracking, project planning
+- **Full PM Authority:**
+  - Monitor all tasks daily
+  - Mark tasks complete with progress comments
+  - Scan for new tickets ([TICKET] prefix)
+  - Categorize priority and urgency
+  - Identify autonomous work opportunities
+  - Track dependencies and blockers
+  - Generate daily PM summary for Clarke
+- **Autonomy:** Complete routine tickets without asking, update task status, add comments
+- **Escalates to Clarke:** Major blockers, priority conflicts, resource allocation, budget decisions
 
 ### Forge (Developer Agent)
 - **Reports to:** Clarke
