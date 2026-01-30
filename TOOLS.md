@@ -56,26 +56,17 @@ Tools installed:
 
 ## ClawdHub Skills Installed (Jan 30, 2026)
 
+**VPS-compatible skills only** (macOS/iOS skills removed - no Mac Mini)
+
 **Stock & Finance:**
 - dexter - Stock research agent (needs API keys)
 
 **Task Management:**
 - todoist - Task management (needs API token)
-- things-mac - Things 3 CLI (macOS)
 
 **Google Workspace:**
 - google-workspace-mcp - Google Workspace MCP
 - gog - Google Workspace CLI (needs OAuth)
-
-**Apple Ecosystem:**
-- apple-remind-me - Natural language reminders (macOS)
-- apple-contacts - Contact lookup (macOS)
-- apple-photos - Photo search (macOS)
-- apple-music - Music control (macOS)
-- apple-mail-search - Fast Mail search (macOS)
-- healthkit-sync - Gym data sync (iOS/macOS)
-- icloud-findmy - Device tracking (iCloud)
-- shortcuts-skill - iOS/macOS automation
 
 **Development & Deployment:**
 - vercel - Deploy CLI
@@ -85,19 +76,11 @@ Tools installed:
 - youtube-summarizer - Video transcripts
 - steam - Steam Deck library
 
-**iMessage Options:**
-- BlueBubbles: Requires Mac Mini (recommended)
-- Pypush: Experimental, high risk
-- Beeper: Subscription service
-- See /tmp/imessage-setup-guide.txt for details
-
 **API Keys Needed:**
 1. Dexter: Financial Datasets + Tavily API keys
 2. Todoist: API token + CLI installation
 3. Google Workspace: OAuth credentials
-4. Apple ecosystem: macOS environment
 
 **Next Actions:**
 1. Configure API keys for priority skills
-2. Consider Mac Mini for Apple ecosystem integration
-3. Test basic functionality of installed skills
+2. Test basic functionality of installed skills
