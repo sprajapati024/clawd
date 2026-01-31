@@ -1,6 +1,7 @@
 # USER.md - Shirin
 
 - **Name:** Shirin Prajapati
+- **Gender:** Male (he/him)
 - **Location:** Toronto, Canada
 - **Timezone:** EST/EDT
 - **Background:** From India, moved to Canada in 2015 as a student

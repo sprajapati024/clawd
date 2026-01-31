@@ -13,17 +13,30 @@ Things like:
 ## Todoist Integration
 
 **API Token:** Configured ✅
-**Projects:**
-- `Clarke - Autonomous Work` - Long-term optimization projects
-- `Clarke - Planned Tasks` - Scheduled upcoming work
-- `Clarke - Backburner` - Low priority / blocked tasks
-- `Clarke - Recurring Systems` - Daily/automated routines
+**Projects (Work Type/State):**
+1. **Tickets** — New work intake (inbox)
+2. **Strategic** — Long-term optimization, R&D, system improvements
+3. **Scheduled** — Time-bound, planned work with deadlines
+4. **Backburner** — Low priority, blocked, future consideration
+5. **Recurring** — Daily/weekly/monthly automated routines
+
+**Labels (Ownership):**
+- `@Clarke` — CEO-level strategic decisions
+- `@Atlas` — PM-owned tasks (triaging, tracking, reporting)
+- `@Forge` — Development, automation, technical work
+- `@Ledger` — Finance, budgeting, transaction tracking
+
+**Workflow:**
+1. New task → **Tickets** project (no label yet)
+2. **Atlas** triages → assigns owner label → moves to appropriate project
+3. **Clarke** can assign directly to Atlas with label
+4. Filter by label to see "all Forge's work" across projects
 
 **Quick Commands:**
 ```bash
 todoist today                    # Today's tasks
-todoist tasks -p "Clarke - Autonomous Work"  # Project tasks
-todoist add "Task name" --due "tomorrow" --priority 1
+todoist tasks -p "Strategic"     # Project tasks
+todoist add "Task name" --due "tomorrow" --priority 1 --label "@Forge"
 todoist done <task-id>          # Complete task
 ```
 
@@ -33,11 +46,11 @@ todoist done <task-id>          # Complete task
 - Morning brief includes today's tasks
 - Automatic updates when work completes
 
-**All migrated from TASKS.json:**
-✅ 4 autonomous projects (Mistral hybrid, Vector search, PostgreSQL, Redis)
-✅ 2 planned tasks (Smart home, Insurance shopping)  
-✅ 3 backburner items (Package tracking, Ultrahuman, Calendar)
-✅ 7 recurring systems (VPS monitoring, security, backups, trading bot)
+**Current Tasks:**
+- **Strategic:** 5 tasks (Mistral hybrid, Vector search, PostgreSQL, Redis, ROI report)
+- **Scheduled:** 3 tasks (Smart home, Insurance shopping, Trading bot)
+- **Backburner:** 3 tasks (Package tracking, Ultrahuman, Calendar)
+- **Recurring:** 13 tasks (Window pings, backups, journals, reports)
 
 ## Timezone
 - **Shirin's timezone:** EST/EDT (Toronto)
