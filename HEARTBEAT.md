@@ -70,42 +70,14 @@ If nothing happened:
 
 ---
 
-## 3️⃣ 🚦 Todoist DISPATCHER (NEW — CORE)
-**This is the due‑time execution engine you designed.**
+## 3️⃣ Task Execution Status
+**Note:** Dispatcher runs separately every hour via cron (`/root/clawd/scripts/dispatcher-execute.py`).
 
-### What it checks (every heartbeat)
-All tasks that:
-- Are assigned
-- Are **NOT**:
-  - `Status: Done`
-  - `Status: In progress`
-  - `Status: Blocked`
-
-### Due‑time gate (non‑negotiable)
-- If **now < due time** → ignore
-- If **now ≥ due time** → eligible
-
-### Action (INLINE, for ALL eligible tasks)
-For each eligible task:
-
-- 🟡 **Status: Needs clarity**
-  - Ask Shirin the pending question (once)
-
-- 🟢 **Status: Ready**
-  - Nudge assigned owner **or**
-  - Start agent (when appropriate)
-
-### Guardrails
-- ✅ Never start early
-- ✅ Never assume if unclear
-- ✅ One active task per owner at a time
-- ✅ Late night (11 PM–7 AM) → defer unless marked urgent
+Heartbeat only reports what's been started, not what should start.
 
 ### Report format:
-- 🚦 Dispatcher:
-  - Task A → nudged Forge
-  - Task B → asked Shirin for clarity
-- ✅ No tasks eligible
+- 🔄 Active work: [Agent name] on [task]
+- ✅ No active work
 
 ---
 
