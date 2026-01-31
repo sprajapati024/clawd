@@ -45,9 +45,12 @@ def scan_and_act():
             else:
                 due_dt = date_parser.parse(str(due_value))
             
-            # Make timezone aware
+            # If no timezone, assume EST (UTC-5)
             if due_dt.tzinfo is None:
-                due_dt = due_dt.replace(tzinfo=timezone.utc)
+                # Convert EST to UTC for comparison
+                from zoneinfo import ZoneInfo
+                est = ZoneInfo('America/Toronto')
+                due_dt = due_dt.replace(tzinfo=est).astimezone(timezone.utc)
         except:
             continue
         
